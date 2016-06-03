@@ -1,4 +1,7 @@
+@import url(easy-autocomplete.css);
+/* @import url(easy-autocomplete.themes.css); */
 @import url(main.css);
+
 /* custom style */
 
 body {
@@ -137,7 +140,7 @@ p.error {
   color: red;
   margin: 0;
   font-size: 13px;
-  /* display: none; */
+  display: none;
 }
 
 .star {
@@ -374,7 +377,7 @@ p.error {
 }
 
 .subjects  {
-    margin: 25px 0 0 0;
+    margin: 0;
     padding: 0;
     list-style-type: none;
 }
@@ -392,6 +395,7 @@ p.error {
 }
 .subjects li:first-child {
     margin-left: 0;
+    margin-top: 25px;
 }
 
 .subjects li .close {
@@ -416,7 +420,7 @@ p.error {
 }
 
 .interested-List {
-    margin: 30px 0 0 0;
+    margin: 0;
     list-style-type: none;
     padding: 0;
 }
@@ -440,28 +444,28 @@ p.error {
     cursor: pointer;
 }
 
-.interested-List li .pull-null {
-    background: #d4e4ee url('../img/arrow-gray.png') center center no-repeat;
+.interested-List li:first-child{
+  margin-top: 30px;
 }
-.interested-List li .pull-null.down {
-    background: #d4e4ee url('../img/arrow-gray.png') center center no-repeat;
+.interested-List li .pull-first {
+    background: #39b54a url('../img/arrow-white.png') center center no-repeat;  
+}
+
+.interested-List li .pull-second {
+    background: #038fd5 url('../img/arrow-white.png') center center no-repeat;
     transform: rotate(180deg);
 }
 
-.interested-List li .pull-up {
-    background: #39b54a url('../img/arrow-white.png') center center no-repeat;
-}
-.interested-List li .pull-up.down {
-    background: #39b54a url('../img/arrow-white.png') center center no-repeat;
-    transform: rotate(180deg);
+.interested-List li:last-child .pull-second {
+  background: #d4e4ee url('../img/arrow-gray.png') center center no-repeat;
 }
 
-.interested-List li .pull-down {
-    background: #038fd5 url('../img/arrow-white.png') center center no-repeat;
+.interested-List li:last-child .pull-first {
+  background: #39b54a url('../img/arrow-white.png') center center no-repeat;
 }
-.interested-List li .pull-down.down {
-    background: #038fd5 url('../img/arrow-white.png') center center no-repeat;
-    transform: rotate(180deg);
+
+.interested-List li:first-child .pull-first {
+  background: #d4e4ee url('../img/arrow-gray.png') center center no-repeat;
 }
 
 .interested-List .row {
