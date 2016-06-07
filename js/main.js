@@ -313,6 +313,7 @@ $('#secondStepRegistrationBtn').click(function(){
 	$("#agreeToAttendProgram input[type='radio']").click(function(){
 		if(agreeToAttend.is(':checked')){
 			var finalStatus = 100;
+			$(this).parents('.field').find('.thumb-up img').show();
 			$(this).siblings('.error').hide();
 		}
 		$('#thirdStepProgressReg').removeClass('progress-started').addClass('progress-completed');
