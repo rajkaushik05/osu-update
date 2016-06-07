@@ -150,9 +150,6 @@ $(document).ready(function(){
 			"National Cadet Crops"
 		],
 		list: {
-			sort: {
-				enabled: true
-			},
 			onChooseEvent: function() {
 				var value = $("#xiSubjectConsiderText").getSelectedItemData();
 				$('#xiConsiderSubjectAdded').append('<li>'+value+' <span class="close"></span></li>');
@@ -185,9 +182,6 @@ $(document).ready(function(){
 		getValue: "career",
 
 		list: {
-			sort: {
-				enabled: true
-			},
 			onChooseEvent: function() {
 				var value = $("#careersInterestedInText").getSelectedItemData().career;
 				var count = $('#careersInterestedInAdded > li').length +1;
@@ -354,6 +348,7 @@ $('#secondStepRegistrationBtn').click(function(){
 	});
 	
 
+/*--------------Feedback page-1 form validation ------------------------------------- */
 
 
 });

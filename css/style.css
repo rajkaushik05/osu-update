@@ -125,6 +125,10 @@ select {
     background: url('../img/select-arrow.png') center right no-repeat;
 }
 
+select[disabled='disabled']{
+  background-image: none;
+}
+
 p.error {
   color: red;
   margin: 0;
@@ -421,8 +425,7 @@ p.error {
 .fields label {
     display: block;
     font-size: 16px;
-    margin-bottom: 4px;
-    font-weight: 700;
+    margin-bottom: 5px;
 }
 
 .fields .field {
@@ -501,7 +504,13 @@ p.error {
     background-image: -moz-linear-gradient( 90deg, rgb(222,241,253) 0%, rgb(255, 255, 255) 100%);
     background-image: -o-linear-gradient( 90deg, rgb(222,241,253) 0%, rgb(255, 255, 255) 100%);
     background-image: -webkit-linear-gradient( 90deg, rgb(222,241,253) 0%, rgb(255, 255, 255) 100%);
+    border-radius: 2px;
 }
+
+.interested-List.disabled li {
+  color: #4d4f52;
+}
+
 .interested-List li span[class^="pull-"] {
     width: 24px;
     height: 24px;
@@ -513,13 +522,22 @@ p.error {
 .interested-List li:first-child{
   margin-top: 30px;
 }
+
 .interested-List li .pull-first {
-    background: #39b54a url('../img/arrow-white.png') center center no-repeat;  
+    background: rgba(57, 181, 74, 1) url('../img/arrow-white.png') center center no-repeat;  
+}
+
+.interested-List.disabled li .pull-first {
+    background: rgba(57, 181, 74, 0.36) url('../img/arrow-white.png') center center no-repeat;  
 }
 
 .interested-List li .pull-second {
-    background: #038fd5 url('../img/arrow-white.png') center center no-repeat;
+    background: rgba(3, 143, 213, 1) url('../img/arrow-white.png') center center no-repeat;
     transform: rotate(180deg);
+}
+
+.interested-List.disabled li .pull-second {
+    background: rgba(3, 143, 213, 0.36) url('../img/arrow-white.png') center center no-repeat;
 }
 
 .interested-List li:last-child .pull-second {
@@ -528,6 +546,10 @@ p.error {
 
 .interested-List li:last-child .pull-first {
   background: #39b54a url('../img/arrow-white.png') center center no-repeat;
+}
+
+.interested-List.disabled li:last-child .pull-first {
+    background: rgba(57, 181, 74, 0.36) url('../img/arrow-white.png') center center no-repeat;  
 }
 
 .interested-List li:first-child .pull-first {
@@ -551,6 +573,10 @@ p.error {
     height: 23px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.interested-List.disabled li .close {
+  background: #d9dfe5 url('../img/close.png') center center no-repeat;
 }
 
 .interested-List li .text {
@@ -700,4 +726,53 @@ p.error {
 
 #thirdStepRegistration .star-progress h2 {
   text-transform: initial;
+}
+
+[disabled='disabled']{
+    background-color: rgb(240, 244, 248);
+    box-shadow: none;
+    color: #495461;
+}
+
+label .edit {
+  vertical-align: middle;
+  margin-left: 14px;
+}
+
+.edit {
+  width: 21px;
+  height: 17px;
+  display: inline-block;
+  background: url('../img/edit.png') center center no-repeat;
+  cursor: pointer;
+}
+
+.edit-field {
+  position: relative;
+}
+
+.edit-field .edit {
+  position: absolute;
+  right: 11px;
+  top: 11px;
+}
+
+.instruction {
+  font-size: 16px;
+  padding: 0 15px;
+  margin-bottom: 45px;
+}
+
+.instruction p{
+  margin-bottom: 0;
+}
+
+.instruction .edit {
+  vertical-align: middle;
+  cursor: inherit;
+}
+
+.pref-career {
+  padding: 0 15px;
+  margin: 0 0 44px;
 }

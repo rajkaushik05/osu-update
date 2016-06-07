@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Registration | osu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  </head>
+  <body>
+    <div class="container gray-bg" id="firstStepFeedback">
+      <form action="feedback-1.html">
+        <header>
+          <div class="logo">
+            <img src="img/logo.png" alt="osu logo">
+          </div>
+          <div class="progress-bar-style row">
+            <div class="col-9">
+              <ul class="progress-bar row">
+                <!-- Need to toggle classes (progress-started, progress-completed) -->
+                <li class="progress-started" id="firstStepProgressReg">
+                  <span class="circle start"></span>
+                  <span class="circle"></span>
+                  <span class="progress" style="width: 100%"></span>
+                </li>
+                <li class="">
+                  <span class="circle"></span>
+                  <span class="progress"></span>
+                </li>
+                <li class="">
+                  <span class="circle"></span>
+                  <span class="progress"></span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <span class="step-up"></span>
+            </div>
+          </div>
+          <div class="star-progress">
+            <div class="col-9 row">
+              <h2>Tell us about yourself</h2>
+              <span class="star-img" id="firstStepStarReg"><span class="update" style="width:100%"></span></span>
+            </div>
+          </div>
+        </header>
+        <div class="fields">
+          <div class="row instruction">
+            <p>Click on the edit ( <span class="edit"></span> ) button to make changes to the form</p>
+          </div>
+          <div class="row field">
+            <div class="col-9">
+              <label for="yourFullNameTextEdit">Your full name <span class="star">*</span></label>
+              <div class="edit-field">
+                <input type="text" class="form-control" id="yourFullNameTextEdit" value="Shashank Merothiya" placeholder="First name &amp; last name" disabled="disabled">
+                <p class="error">Enter first &amp; last name</p>  
+                <span class="edit"></span>
+              </div>
+            </div>
+            <div class="thumb-up col-3">
+              <img src="img/thumb-up.png" alt="Thumb up">
+            </div>
+          </div>
+          <div class="row field fields-group">
+            <div class="col-3">
+              <label for="rollNumberTextEdit">Roll Number <span class="star">*</span></label>
+              <div class="edit-field">
+                <input type="number" class="form-control" id="rollNumberTextEdit" value="231" placeholder="Roll number" disabled="disabled">  
+                <span class="edit"></span>
+              </div>
+            </div>
+            <div class="col-3">
+              <label for="classSelect">Class <span class="star">*</span></label>
+              <div class="edit-field">
+                <select id="classSelect" class="form-control" disabled="disabled">
+                  <option disabled selected>--Select--</option>
+                  <option value="xi" selected="selected">XI</option>
+                  <option value="xii">XII</option>
+                </select> 
+                <span class="edit"></span>
+              </div>
+            </div>
+            <div class="col-3">
+              <label for="sectionSelect">Section <span class="star">*</span></label>
+              <div class="edit-field">
+                <select id="sectionSelect" class="form-control" disabled="disabled">
+                  <option disabled selected>--Select--</option>
+                  <option value="a">A</option>
+                  <option value="b" selected="selected">B</option>
+                </select>
+                <span class="edit"></span>
+              </div>
+            </div>
+            <div class="thumb-up col-3">
+              <img src="img/thumb-up.png" alt="Thumb up">
+            </div>
+          </div>
+          <div class="row field">
+            <div class="col-9">
+              <label for="yourSchoolText">Name of your School <span class="star">*</span></label>
+              <div class="edit-field">
+                <input type="text" class="form-control" id="yourSchoolText" value="Geeta Public School" placeholder="Your school name" disabled="disabled">
+                <p class="error">Enter name of your school</p>
+                <span class="edit"></span>
+              </div>
+            </div>
+            <div class="thumb-up col-3">
+              <img src="img/thumb-up.png" alt="Thumb up">
+            </div>
+          </div>
+          <div class="row field thumb-align">
+            <div class="col-9">
+              <label for="xiSubjectConsiderText">Subjects <span class="edit"></span></label>
+              <input type="text" class="form-control" id="xiSubjectConsiderText" placeholder="Search and select subjects" disabled="disabled">
+              <ul class="subjects" id="xiConsiderSubjectAdded">
+                <li>Mathematics <span class="close"></span></li>
+                <li>Chemistry <span class="close"></span></li>
+                <li>Physics <span class="close"></span></li>
+              </ul>
+            </div>
+            <div class="thumb-up col-3">
+              <img src="img/thumb-up.png" alt="Thumb up">
+            </div>
+          </div>
+          <div class="row field thumb-align">
+            <div class="col-9">
+              <label for="careersInterestedInText">Careers you are interested in <span class="edit"></span></label>
+              <input type="text" class="form-control" id="careersInterestedInText" placeholder="Search options" disabled="disabled">
+              <ul class="interested-List disabled" id="careersInterestedInAdded"> 
+                <li class="row"><span class="pull-first"></span><span class="pull-second"></span> <span class="count">1</span><span class="text">Doctor</span><span class="close"></span></li>
+                <li class="row"><span class="pull-first"></span><span class="pull-second"></span> <span class="count">2</span><span class="text">Electrical Engineer</span><span class="close"></span></li>
+                <li class="row"><span class="pull-first"></span><span class="pull-second"></span> <span class="count">3</span><span class="text">Paramilitary</span><span class="close"></span></li>
+              </ul>
+            </div>
+            <div class="thumb-up col-3">
+              <img src="img/thumb-up.png" alt="Thumb up">
+            </div>
+          </div>
+          <p class="pref-career">65% of student chose Doctor as their preferred career.</p>
+          <div class="action">  
+            <button class="btn btn-primary" id="firstStepRegistrationBtn">Continue</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="js/vendor/jquery-1.12.0.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+      <script src="js/plugins.js"></script>
+      <script src="js/vendor/jquery.easy-autocomplete.js"></script>
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>
