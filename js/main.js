@@ -333,7 +333,7 @@ $('#secondStepRegistrationBtn').click(function(){
 
 	/* input type number & Email Validator validate */
 
-	$("input[type='number']").change(function(){
+	$("input[type='tel']").change(function(){
 		var el = $(this).val();
 		var strNum = parseInt(el);
 		var numLength = 10;
@@ -348,7 +348,6 @@ $('#secondStepRegistrationBtn').click(function(){
 		var el = $(this).val();
 		if(validateEmail(el)){
 			$(this).siblings('p').hide();
-			count++;
 		} else{
 			$(this).siblings('p').show();
 		}
