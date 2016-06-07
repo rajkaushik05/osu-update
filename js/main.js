@@ -330,6 +330,33 @@ $('#secondStepRegistrationBtn').click(function(){
 		}
 	});
 
+
+	/* input type number & Email Validator validate */
+
+	$("input[type='number']").change(function(){
+		var el = $(this).val();
+		var strNum = parseInt(el);
+		var numLength = 10;
+		if(typeof strNum === 'number' && el.length === numLength && strNum !== '') {
+			$(this).siblings('p').hide();
+		} else if(el.length !== numLength){
+			$(this).siblings('p').show();
+		}
+	});
+
+	$("input[type='email']").change(function(){
+		var el = $(this).val();
+		if(validateEmail(el)){
+			$(this).siblings('p').hide();
+			count++;
+		} else{
+			$(this).siblings('p').show();
+		}
+	});
+	
+
+
+
 });
 
 

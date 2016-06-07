@@ -172,9 +172,9 @@ p.error {
 }
 
 .radio-style input[type='radio'] + label span {
-  border: 3px solid rgb(0, 148, 203);
+  border: 3px solid rgb(195, 206, 218);
   border-radius: 50%;
-  box-shadow: inset 0px 3px 7px 0px rgba(0, 0, 0, 0.17);
+  box-shadow: inset 0px 1px 7px 0px rgba(0, 0, 0, 0.17);
   width: 24px;
   height: 24px;
   background-color: #ffffff;
@@ -182,6 +182,10 @@ p.error {
   vertical-align: middle;
   margin-right: 5px;
   position: relative;
+}
+
+.radio-style input[type='radio']:checked +  label span {
+  border: 3px solid rgb(0, 148, 203);
 }
 
 .radio-style input[type='radio']:checked +  label span:before {
@@ -628,7 +632,6 @@ p.error {
 }
 
 .parents-details .row label {
-  width: calc(8.33333%*4);
   padding-right: 20px;
   box-sizing: border-box;
   text-align: right;
@@ -650,6 +653,10 @@ p.error {
   -webkit-align-items: center;
 }
 
+.parents-details .row [class^="col-"]{
+  padding: 0;
+}
+
 .parents-details .checkbox-style {
   width: calc(8.33333%*8);
   padding-left: calc(8.33333%*4);
@@ -659,10 +666,6 @@ p.error {
 .parents-details .checkbox-style label {
   color: rgb(1, 164, 231);
   font-size: 14px;
-}
-
-.parents-details .row input {
-  width: calc(8.33333%*8);
 }
 
 .label-text {
