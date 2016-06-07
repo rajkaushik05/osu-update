@@ -1,7 +1,8 @@
 "use strict"
 
 $(document).ready(function(){
-	/*Register Form page-1 form validation */
+
+	/*--------------Register Form page-1 form validation ------------------------------------- */
 
 	$('#firstStepRegistration input, #firstStepRegistration select').on('blur change', function(){
 		var yourFullNameText = $('#yourFullNameText');
@@ -29,9 +30,7 @@ $(document).ready(function(){
 		
 		var countField = 0;
 		var rollValue= rollNumberText.val();
-		var strNum = parseInt(rollValue);
-		var numLength = 10;
-		if(typeof strNum === 'number' && rollValue.length == numLength && strNum != '') {
+		if(typeof rollValue === 'string' && rollValue != '') {
 			finalStatus  += ratio;
 			countField += 1;
 		}
@@ -54,19 +53,16 @@ $(document).ready(function(){
 			$('#rollNumberText').parents('.fields-group').find('.thumb-up img').hide();
 		}
 
+		var schoolVal = yourSchoolText.val();
 		if($(this).attr('id') == 'yourSchoolText' && $(this).val() === ''){
 			$(this).siblings('p').show();
 		}
-		var schoolVal = yourSchoolText.val();
-		if($(this).attr('id') == 'yourSchoolText'){
-				if(typeof schoolVal === 'string' && schoolVal !== '') {
-				finalStatus += ratio;
-				yourSchoolText.siblings('p').hide();
-				$('#yourSchoolText').parents('.field').find('.thumb-up img').show();
-			} else {
-				yourSchoolText.siblings('p').show();
-				$('#yourSchoolText').parents('.field').find('.thumb-up img').hide();
-			}
+		if(typeof schoolVal === 'string' && schoolVal !== '') {
+			finalStatus += ratio;
+			yourSchoolText.siblings('p').hide();
+			$('#yourSchoolText').parents('.field').find('.thumb-up img').show();
+		} else {
+			$('#yourSchoolText').parents('.field').find('.thumb-up img').hide();
 		}
 
 	 	finalStatus = Math.round(finalStatus);
@@ -180,7 +176,10 @@ $(document).ready(function(){
 		data:[
 			{"count": "1", "career": "Doctor"},
 			{"count": "2", "career": "Electrical Engineer"},
-			{"count": "3", "career": "Paramilitary"}
+			{"count": "3", "career": "Paramilitary"},
+			{"count": "3", "career": "Teacher"},
+			{"count": "3", "career": "Mechanical Engineer"},
+			{"count": "3", "career": "Civil Engineer"}
 		],
 
 		getValue: "career",
@@ -218,6 +217,118 @@ $(document).ready(function(){
 		next.after(item);
 		updateCount();
 	});
+
+
+/*--------------Register Form page-2 form validation ------------------------------------- */
+function validateEmail(email) {
+	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+$('#secondStepRegistration input').on('blur change', function(){
+	var yourPhoneNumberText = $('#yourPhoneNumberText');
+	var yourEmailAddressText = $('#yourEmailAddressText');
+
+	var count = 1;
+	var finalStatus = 0;
+	var ratio = 50;
+	
+
+	var rollValue = yourPhoneNumberText.val();
+	var strNum = parseInt(rollValue);
+	var numLength = 10;
+	if($(this).attr('id') === 'yourPhoneNumberText' && rollValue.length !== numLength) {
+		$(this).siblings('p').show();
+	}
+	if(typeof strNum === 'number' && rollValue.length === numLength && strNum !== '') {
+		finalStatus  += ratio;
+		$(this).siblings('p').hide();
+		$(this).parents('.field').find('.thumb-up img').show();
+	} else if(rollValue.length !== numLength){
+		$(this).parents('.field').find('.thumb-up img').hide();
+	}
+
+	var emailVal = yourEmailAddressText.val();
+	if($(this).attr('id') === 'yourEmailAddressText' && emailVal !== '' && validateEmail(emailVal) === false){
+		$('#yourEmailAddressText').siblings('p').show();
+	}
+	if(validateEmail(emailVal)){
+		finalStatus  += ratio;
+		$('#yourEmailAddressText').siblings('p').hide();
+		$('#yourEmailAddressText').parents('.field').find('.thumb-up img').show();
+	} else{
+		$('#yourEmailAddressText').parents('.field').find('.thumb-up img').hide();
+	}
+
+ 	finalStatus = Math.round(finalStatus);
+ 	if(finalStatus > 0){
+ 		$('#secondStepProgressReg').addClass('progress-started');
+ 	} else {
+ 		$('#secondStepProgressReg').removeClass('progress-started');
+ 	}
+ 	
+ 	$('#secondStepProgressReg .progress').css('width', finalStatus + "%");
+ 	$('#secondStepStarReg .update').css('width', finalStatus + '%');
+ 	
+});
+
+
+$('#secondStepRegistrationBtn').click(function(){
+	var yourPhoneNumberText = $('#yourPhoneNumberText');
+	var yourEmailAddressText = $('#yourEmailAddressText');
+
+	var count = 1;
+	var finalStatus = 0;
+	var ratio = 50;
+	
+	var rollValue = yourPhoneNumberText.val();
+	var strNum = parseInt(rollValue);
+	var numLength = 10;
+
+	if(typeof strNum === 'number' && rollValue.length === numLength && strNum !== '') {
+		$(this).siblings('p').hide();
+		count++;
+	} else if(rollValue.length !== numLength){
+		$(this).siblings('p').show();
+	}
+
+	var emailVal = yourEmailAddressText.val();
+	if(validateEmail(emailVal)){
+		$('#yourEmailAddressText').siblings('p').hide();
+		count++;
+	} else{
+		$('#yourEmailAddressText').siblings('p').show();
+	}
+
+ 	if(count-1 === 2){
+ 		
+ 	} else {
+ 		return false;
+ 	}
+});
+
+
+/*--------------Register Form page-3 form validation ------------------------------------- */
+	var agreeToAttend = $("#agreeToAttendProgram input[type='radio']");
+	$("#agreeToAttendProgram input[type='radio']").click(function(){
+		if(agreeToAttend.is(':checked')){
+			var finalStatus = 100;
+			$(this).siblings('.error').hide();
+		}
+		$('#thirdStepProgressReg').removeClass('progress-started').addClass('progress-completed');
+		$('#thirdStepProgressReg .progress').css('width', finalStatus + "%");
+ 		$('#thirdStepStarReg .update').css('width', finalStatus + '%');
+	});
+	
+	$('#thirdStepRegistrationBtn').click(function(){
+		if(agreeToAttend.is(':checked')){
+			return false;
+		} else{
+			$('#agreeToAttendProgram .error').show();
+			return false;
+		}
+	});
+
 });
 
 
