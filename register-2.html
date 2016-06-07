@@ -1,0 +1,86 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Registration | osu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  </head>
+  <body>
+    <div class="container gray-bg" id="thirdStepRegistration">
+      <form action="hello.html">
+        <header>
+          <div class="logo">
+            <img src="img/logo.png" alt="osu logo">
+          </div>
+          <div class="progress-bar-style row">
+            <div class="col-9">
+              <ul class="progress-bar row">
+                <!-- Need to toggle classes (progress-started, progress-completed) -->
+                <li class="progress-completed" id="firstStepProgressReg">
+                  <span class="circle start"></span>
+                  <span class="circle"></span>
+                  <span class="progress" style="width: 100%"></span>
+                </li>
+                <li class="progress-completed" id="secondStepProgressReg">
+                  <span class="circle"></span>
+                  <span class="progress" style="width: 100%"></span>
+                </li>
+                <li class="progress-started" id="thirdStepProgressReg">
+                  <span class="circle"></span>
+                  <span class="progress" style="width:0%"></span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <span class="step-up"></span>
+            </div>
+          </div>
+          <div class="star-progress">
+            <div class="col-9 row">
+              <h2>Here is video for you!</h2>
+              <span class="star-img" id="thirdStepStarReg"><span class="update" style="width:0%"></span></span>
+            </div>
+          </div>
+        </header>
+        <div class="video-wrap">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PqHg_hvoETs?list=PLlSqH-JRkEfgDio6revfbBfwWhlpary5_" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="fields dark-gray">
+          <div class="row field">
+            <div class="col-9 radio-style" id="agreeToAttendProgram">
+              <p class="label-text">Subject to your Guardian’s approval, would you attend the OSU Program? <span class="star">*</span></p>
+              <input type="radio" name="agreeToAttendProgram" id="agreeToAttendProgram-1"> 
+              <label for="agreeToAttendProgram-1"><span></span>Yes</label>
+              <input type="radio" name="agreeToAttendProgram" id="agreeToAttendProgram-no"> 
+              <label for="agreeToAttendProgram-no"><span></span>No</label>
+              <input type="radio" name="agreeToAttendProgram" id="agreeToAttendProgram-think"> 
+              <label for="agreeToAttendProgram-think"><span></span>I need to think about it</label>
+              <p class="error">Please select one option</p>
+            </div>
+            <div class="thumb-up col-3">
+              <img src="img/thumb-up.png" alt="Thumb up">
+            </div>
+          </div>
+          <div class="action">  
+            <button class="btn btn-primary" id="thirdStepRegistrationBtn">Sign Me up!</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="js/vendor/jquery-1.12.0.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+      <script src="js/plugins.js"></script>
+      <script src="js/vendor/jquery.easy-autocomplete.js"></script>
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>
