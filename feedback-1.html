@@ -1,0 +1,136 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Registration | osu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  </head>
+  <body>
+    <div class="container gray-bg" id="secondStepFeedback">
+      <form action="feedback-2.html">
+        <header>
+          <div class="logo">
+            <img src="img/logo.png" alt="osu logo">
+          </div>
+          <div class="progress-bar-style row">
+            <div class="col-9">
+              <ul class="progress-bar row">
+                <!-- Need to toggle classes (progress-started, progress-completed) -->
+                <li class="progress-completed" id="firstStepProgressReg">
+                  <span class="circle start"></span>
+                  <span class="circle"></span>
+                  <span class="progress" style="width: 100%"></span>
+                </li>
+                <li class="progress-started" id="secondStepProgressReg">
+                  <span class="circle"></span>
+                  <span class="progress" style="width: 0%"></span>
+                </li>
+                <li class="">
+                  <span class="circle"></span>
+                  <span class="progress"></span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <span class="step-up"></span>
+            </div>
+          </div>
+          <div class="star-progress">
+            <div class="col-9 row">
+              <h2>Tell us about yourself</h2>
+              <span class="star-img" id="secondStepStarReg"><span class="update" style="width:0%"></span></span>
+            </div>
+          </div>
+        </header>
+        <div class="instructor-rating">
+          <div class="row">
+            <div class="padding instructor-pro">
+              <span class="pic instructor-1"></span>
+              <span  class="text">
+                Your Instructor <br>
+                <span class="name">Jane Doe</span>
+              </span>
+            </div>
+            <div class="padding star-rating-wrap">
+              <p class="text">How will you rate this session? <span class="star">*</span></p>
+              <div class="star-rating-radio">
+                <label for="star1" title="Sucks big time"><input type="radio" id="star1" name="rating" value="1" /></label>
+                <label for="star2" title="Kinda bad"><input type="radio" id="star2" name="rating" value="2" /></label>
+                <label for="star3" title="Meh"><input type="radio" id="star3" name="rating" value="3" /></label>
+                <label for="star4" title="Pretty good"><input type="radio" id="star4" name="rating" value="4" /></label>
+                <label for="star5" title="Rocks!" ><input type="radio" id="star5" name="rating" value="5" /></label>
+              </div>
+              <p class="error">Please select rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="fields">
+          <div class="padding select-options field">
+            <p class="label-text">What did you like about the class room session? <span class="star">*</span></p>
+            <div class="checkbox-style" id="didYouLikeClassRoom">
+              <input type="checkbox" name="classRoomSession" id="classroomSession_1">
+              <label for="classroomSession_1"><span></span>Fun and playful environment</label>
+              <input type="checkbox" name="classRoomSession" id="classroomSession_2">
+              <label for="classroomSession_2"><span></span>I was able to get all the information I needed</label>
+              <input type="checkbox" name="classRoomSession" id="classroomSession_3">
+              <label for="classroomSession_3"><span></span>Sessions were not too long yet had all the information</label>
+              <input type="checkbox" name="classRoomSession" id="classroomSession_4">
+              <label for="classroomSession_4"><span></span>I have a very clear idea of what my career path is</label>
+              <input type="checkbox" name="classRoomSession" id="classroomSession_5">
+              <label for="classroomSession_5"><span></span>The videos were excellent</label>
+              <input type="checkbox" name="classRoomSession" id="classroomSession_6">
+              <label for="classroomSession_6"><span></span>None. I did’t really like the session.</label>
+            </div>
+            <p class="error">Please select options</p>
+          </div>
+
+          <div class="padding field" id="notLikeAboutSession">
+            <div class="col-9">
+              <label for="">Sad to hear that! What did you NOT like about the session? <span class="star">*</span></label>
+              <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+              <p class="error">Please write comment</p>  
+            </div>
+          </div>
+
+          <div class="padding field" id="awareOfTheCarreer">
+            <div class="col-9">
+              <p class="label-text">Are you aware of the careers impacted by subject choices?</p>
+              <div class="radio-style">
+                <input type="radio" name="careerImpactBySubject" id="careerImpactBySubject_1">
+                <label for="careerImpactBySubject_1"><span></span>Yes</label>
+                <input type="radio" name="careerImpactBySubject" id="careerImpactBySubject_2">
+                <label for="careerImpactBySubject_2"><span></span>No</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="padding field" id="anyOtherCommentForUs">
+            <div class="col-9">
+              <label for="">Any other comments for us?</label>
+              <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>  
+            </div>
+          </div>
+
+          <div class="action">  
+            <button class="btn btn-primary" id="secondStepFeedbackBtn">Continue</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="js/vendor/jquery-1.12.0.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+      <script src="js/plugins.js"></script>
+      <script src="js/vendor/jquery.easy-autocomplete.js"></script>
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>

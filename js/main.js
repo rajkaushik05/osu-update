@@ -349,7 +349,200 @@ $('#secondStepRegistrationBtn').click(function(){
 	
 
 /*--------------Feedback page-1 form validation ------------------------------------- */
+	$('#firstStepFeedbackBtn').click(function(){
+		var yourFullNameTextEdit = $('#yourFullNameTextEdit');
+		var rollNumberTextEdit = $('#rollNumberTextEdit');
+		var classSelectEdit = $('#classSelectEdit');
+		var sectionSelectEdit = $('#sectionSelectEdit');
+		var yourSchoolTextEdit = $('#yourSchoolTextEdit');
 
+		var registerFirstForm = [yourFullNameTextEdit, rollNumberTextEdit, classSelectEdit, sectionSelectEdit, yourSchoolTextEdit];
+		var count = 1;
+		var finalStatus = 0;
+	 	for(var i=0; i<registerFirstForm.length; i++){
+	 		var str = registerFirstForm[i].val();
+	 		if(typeof str === 'string' && str !== '') {
+	 			var ratio = 20;
+	 			var getStatus = ratio * count;
+	 			finalStatus = getStatus;
+	 			count++;
+	 		} else if(str === "" || str === null) {
+	 			registerFirstForm[i].siblings('p').show();
+	 		} 
+	 	}
+	 	if(count-1 == registerFirstForm.length){
+	 		
+	 	} else {
+	 		return false;
+	 	}
+	});
+
+	$('#firstStepFeedback input, #firstStepFeedback select').on('blur change', function(){
+		var yourFullNameTextEdit = $('#yourFullNameTextEdit');
+		var rollNumberTextEdit = $('#rollNumberTextEdit');
+		var classSelectEdit = $('#classSelectEdit');
+		var sectionSelectEdit = $('#sectionSelectEdit');
+		var yourSchoolTextEdit = $('#yourSchoolTextEdit');
+
+		var count = 1;
+		var finalStatus = 0;
+		var ratio = 20;
+
+		
+		if($(this).attr('id') == 'yourFullNameTextEdit' && $(this).val() === ''){
+			$(this).siblings('p').show();
+		}
+		var nameVal = yourFullNameTextEdit.val();
+		if(typeof nameVal === 'string' && nameVal !== '') {
+			finalStatus += ratio;
+			yourFullNameTextEdit.siblings('p').hide();
+			$('#yourFullNameTextEdit').parents('.field').find('.thumb-up img').show();
+		} else {
+			$('#yourFullNameTextEdit').parents('.field').find('.thumb-up img').hide();
+		}
+		
+		var countField = 0;
+		var rollValue= rollNumberTextEdit.val();
+		if(typeof rollValue === 'string' && rollValue != '') {
+			finalStatus  += ratio;
+			countField += 1;
+		}
+		
+		var classVal= classSelectEdit.val();
+		if(typeof classVal === 'string' && classVal !== ''){
+			finalStatus  += ratio;
+			countField += 1;
+		}
+
+		var sectionVal= sectionSelectEdit.val();
+		if(typeof sectionVal === 'string' && sectionVal !== ''){
+			finalStatus  += ratio;
+			countField += 1;
+		}
+
+		if(countField === 3){
+			$('#rollNumberTextEdit').parents('.fields-group').find('.thumb-up img').show();
+		} else  {
+			$('#rollNumberTextEdit').parents('.fields-group').find('.thumb-up img').hide();
+		}
+
+		var schoolVal = yourSchoolTextEdit.val();
+		if($(this).attr('id') == 'yourSchoolTextEdit' && $(this).val() === ''){
+			$(this).siblings('p').show();
+		}
+		if(typeof schoolVal === 'string' && schoolVal !== '') {
+			finalStatus += ratio;
+			yourSchoolTextEdit.siblings('p').hide();
+			$('#yourSchoolTextEdit').parents('.field').find('.thumb-up img').show();
+		} else {
+			$('#yourSchoolTextEdit').parents('.field').find('.thumb-up img').hide();
+		}
+
+	 	finalStatus = Math.round(finalStatus);
+	 	if(finalStatus > 0){
+	 		$('#firstStepProgressReg').addClass('progress-started');
+	 	} else {
+	 		$('#firstStepProgressReg').removeClass('progress-started');
+	 	}
+	 	
+	 	$('#firstStepProgressReg .progress').css('width', finalStatus + "%");
+	 	$('#firstStepStarReg .update').css('width', finalStatus + '%');
+	});
+
+	/* click on edit button fields enable */
+
+	$('.edit-field .edit').click(function(){
+		$(this).parents('.edit-field').find('select, input').attr('disabled', false);
+		if($(this).siblings('select').length > 0){
+			$(this).hide();
+		}
+	});
+
+	$('#careersInterestedInLabel .edit').click(function(){
+		$(this).parents('.field').find('input').attr('disabled', false);
+		$('#careersInterestedInAdded').removeClass('disabled');
+	});
+
+	/* disabled button default */
+	$('#careersInterestedInAdded span').click(function(){
+		if($('#careersInterestedInAdded').hasClass('disabled')){
+			alert('true');
+		}
+		return false
+	});
+
+	/* Code for Star Rating */
+	$(".star-rating-radio input[type='radio']").on('change', function(){
+		$(this).parent().prevAll("label").addClass('active');
+		$(this).parent().addClass('active');
+		$(this).parent().nextAll("label").removeClass('active');
+	});
+
+	/*--------------Feedback page-2 form validation ------------------------------------- */
+	
+	$('#secondStepFeedback input, #secondStepFeedback textarea').on('change blur', function(){
+		secondStepFeedbackFormFields();
+	});
+
+	function secondStepFeedbackFormFields(){
+		var starRating = $('#secondStepFeedback .star-rating-radio input[type="radio"]');
+		var didYouLikeClassRoom = $('#didYouLikeClassRoom input[type="checkbox"]');
+		var notLikeAboutSession = $('#notLikeAboutSession textarea');
+
+
+		var finalStatus = 0;
+		if(starRating.is(':checked')) {
+			finalStatus += 33;		
+			$('.star-rating-radio').siblings('.error').hide();
+		} 
+
+		if(didYouLikeClassRoom.is(':checked')){
+			finalStatus += 33;	
+			$('#didYouLikeClassRoom').siblings('.error').hide();
+		}
+
+		var str = notLikeAboutSession.val();
+		if(typeof str === 'string' && str !== '')  {
+			finalStatus += 33;
+			notLikeAboutSession.siblings('.error').hide();
+		} 
+
+		$('#secondStepProgressReg .progress').css('width', finalStatus + "%");
+	 	$('#secondStepStarReg .update').css('width', finalStatus + '%');
+	};
+
+	$('#secondStepFeedbackBtn').click(function(){
+		var starRating = $('#secondStepFeedback .star-rating-radio input[type="radio"]');
+		var didYouLikeClassRoom = $('#didYouLikeClassRoom input[type="checkbox"]');
+		var notLikeAboutSession = $('#notLikeAboutSession textarea');
+
+
+		var finalStatus = 0;
+		if(starRating.is(':checked')) {
+			finalStatus += 33;		
+		} else {
+			$('.star-rating-radio').siblings('.error').show();
+		}
+
+		if(didYouLikeClassRoom.is(':checked')){
+			finalStatus += 33;	
+		} else {
+			$('#didYouLikeClassRoom').siblings('.error').show();	
+		}
+
+		var str = notLikeAboutSession.val();
+		if(typeof str === 'string' && str !== '')  {
+			finalStatus += 33;
+		} else {
+			notLikeAboutSession.siblings('.error').show();
+		}
+
+		if(finalStatus == 99){
+			
+		} else {
+			return false
+		}
+	});
 
 });
 
