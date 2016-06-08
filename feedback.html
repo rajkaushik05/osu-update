@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
@@ -65,7 +65,7 @@
               </div>
             </div>
             <div class="thumb-up col-3">
-              <img src="img/thumb-up.png" alt="Thumb up">
+              <!-- <img src="img/thumb-up.png" alt="Thumb up"> -->
             </div>
           </div>
           <div class="row field fields-group">
@@ -77,9 +77,9 @@
               </div>
             </div>
             <div class="col-3">
-              <label for="classSelect">Class <span class="star">*</span></label>
+              <label for="classSelectEdit">Class <span class="star">*</span></label>
               <div class="edit-field">
-                <select id="classSelect" class="form-control" disabled="disabled">
+                <select id="classSelectEdit" class="form-control toggle" disabled="disabled">
                   <option disabled selected>--Select--</option>
                   <option value="xi" selected="selected">XI</option>
                   <option value="xii">XII</option>
@@ -88,9 +88,9 @@
               </div>
             </div>
             <div class="col-3">
-              <label for="sectionSelect">Section <span class="star">*</span></label>
+              <label for="sectionSelectEdit">Section <span class="star">*</span></label>
               <div class="edit-field">
-                <select id="sectionSelect" class="form-control" disabled="disabled">
+                <select id="sectionSelectEdit" class="form-control toggle" disabled="disabled">
                   <option disabled selected>--Select--</option>
                   <option value="a">A</option>
                   <option value="b" selected="selected">B</option>
@@ -99,26 +99,29 @@
               </div>
             </div>
             <div class="thumb-up col-3">
-              <img src="img/thumb-up.png" alt="Thumb up">
+              <!-- <img src="img/thumb-up.png" alt="Thumb up"> -->
             </div>
           </div>
           <div class="row field">
             <div class="col-9">
-              <label for="yourSchoolText">Name of your School <span class="star">*</span></label>
+              <label for="yourSchoolTextEdit">Name of your School <span class="star">*</span></label>
               <div class="edit-field">
-                <input type="text" class="form-control" id="yourSchoolText" value="Geeta Public School" placeholder="Your school name" disabled="disabled">
+                <input type="text" class="form-control" id="yourSchoolTextEdit" value="Geeta Public School" placeholder="Your school name" disabled="disabled">
                 <p class="error">Enter name of your school</p>
                 <span class="edit"></span>
               </div>
             </div>
             <div class="thumb-up col-3">
-              <img src="img/thumb-up.png" alt="Thumb up">
+              <!-- <img src="img/thumb-up.png" alt="Thumb up"> -->
             </div>
           </div>
           <div class="row field thumb-align">
             <div class="col-9">
-              <label for="xiSubjectConsiderText">Subjects <span class="edit"></span></label>
-              <input type="text" class="form-control" id="xiSubjectConsiderText" placeholder="Search and select subjects" disabled="disabled">
+              <label for="xiSubjectConsiderText">Subjects </label>
+              <div class="edit-field">
+                <input type="text" class="form-control" id="xiSubjectConsiderText" placeholder="Search and select subjects" disabled="disabled">
+                <span class="edit"></span>
+              </div>
               <ul class="subjects" id="xiConsiderSubjectAdded">
                 <li>Mathematics <span class="close"></span></li>
                 <li>Chemistry <span class="close"></span></li>
@@ -126,13 +129,13 @@
               </ul>
             </div>
             <div class="thumb-up col-3">
-              <img src="img/thumb-up.png" alt="Thumb up">
+              <!-- <img src="img/thumb-up.png" alt="Thumb up"> -->
             </div>
           </div>
           <div class="row field thumb-align">
             <div class="col-9">
-              <label for="careersInterestedInText">Careers you are interested in <span class="edit"></span></label>
-              <input type="text" class="form-control" id="careersInterestedInText" placeholder="Search options" disabled="disabled">
+              <label for="careersInterestedInText" id="careersInterestedInLabel">Careers you are interested in <span class="edit"></span></label>
+              <input type="text" class="form-control" id="careersInterestedInText" placeholder="Search options" disabled="disabled" >
               <ul class="interested-List disabled" id="careersInterestedInAdded"> 
                 <li class="row"><span class="pull-first"></span><span class="pull-second"></span> <span class="count">1</span><span class="text">Doctor</span><span class="close"></span></li>
                 <li class="row"><span class="pull-first"></span><span class="pull-second"></span> <span class="count">2</span><span class="text">Electrical Engineer</span><span class="close"></span></li>
@@ -140,12 +143,12 @@
               </ul>
             </div>
             <div class="thumb-up col-3">
-              <img src="img/thumb-up.png" alt="Thumb up">
+              <!-- <img src="img/thumb-up.png" alt="Thumb up"> -->
             </div>
           </div>
           <p class="pref-career">65% of student chose Doctor as their preferred career.</p>
           <div class="action">  
-            <button class="btn btn-primary" id="firstStepRegistrationBtn">Continue</button>
+            <button class="btn btn-primary" id="firstStepFeedbackBtn">Continue</button>
           </div>
         </div>
       </form>

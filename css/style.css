@@ -117,6 +117,11 @@ textarea{
     border-radius: 10px;
     outline: none;
     color: #B7B7B7;
+    resize: none;
+}
+
+textarea.form-control {
+  height: auto;
 }
 
 select {
@@ -153,7 +158,7 @@ p.error {
 }
 
 .checkbox-style input[type='checkbox'] + label span {
-  border: 3px solid rgb(0, 148, 203);
+  border: 3px solid rgb(195, 206, 218);
   border-radius: 4px;
   width: 24px;
   height: 24px;
@@ -163,8 +168,18 @@ p.error {
   margin-right: 5px;
 }
 
+.checkbox-style input[type='checkbox'] + label {
+  color: #6e7174;
+  font-size: 14px;
+}
+
+.checkbox-style input[type='checkbox']:checked +  label {
+  color: rgb(1, 164, 231);
+}
+
 .checkbox-style input[type='checkbox']:checked +  label span {
   background: #ffffff url('../img/check.png') center center no-repeat;
+  border: 3px solid rgb(0, 148, 203);
 }
 
 .radio-style input[type='radio']{
@@ -173,6 +188,7 @@ p.error {
 
 .radio-style input[type='radio'] + label{
   color: rgb(73, 84, 97);
+  font-size: 14px;
 }
 
 .radio-style input[type='radio'] + label span {
@@ -690,13 +706,16 @@ p.error {
 }
 
 .parents-details .checkbox-style label {
-  color: rgb(1, 164, 231);
+  color: #6e7174;
   font-size: 14px;
+}
+
+.parents-details .checkbox-style input[type='checkbox']:checked + label {
+  color: rgb(1, 164, 231);
 }
 
 .label-text {
   font-size: 16px;
-  font-weight: 700;
   margin-bottom: 28px;
 }
 
@@ -776,3 +795,104 @@ label .edit {
   padding: 0 15px;
   margin: 0 0 44px;
 }
+
+
+.instructor-rating  {
+  padding: 20px 15px 25px;
+  border-bottom: 2px solid #c3ceda;
+}
+
+.instructor-pro .pic {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+.instructor-pro .text {
+  display: inline-block;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.instructor-pro .text .name {
+  font-size: 19px;
+  color: #01a4e7;
+  font-weight: 700;
+}
+
+.instructor-1 {
+  background: url('../img/instructor-1.png') center center no-repeat;
+}
+
+.star-rating-wrap .text {
+  font-size: 14px;
+  display: inline-block;
+}
+
+.star-rating-radio {
+  display: inline-block;
+}
+
+.star-rating-radio label{
+  width: 27px;
+  height: 27px;
+  background: url('../img/star.png') center center no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.star-rating-radio input {
+  display: none;
+}
+
+.star-rating-radio label.active{
+  background: url('../img/active-star.png') center center no-repeat; 
+}
+
+.star-rating-radio .error {
+  text-align: right;
+}
+
+.instructor-rating {
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+}
+
+.select-options p {
+  margin-bottom: 25px;
+}
+
+.select-options .checkbox-style input[type='checkbox'] + label span {
+  margin-right: 10px;
+}
+
+.select-options .checkbox-style input[type='checkbox'] + label {
+  margin-bottom: 20px;
+}
+
+#notLikeAboutSession textarea,
+#anyOtherCommentForUs textarea {
+  height: 87px;
+}
+
+#notLikeAboutSession label,
+#anyOtherCommentForUs label {
+  margin-bottom: 25px;
+}
+
+#awareOfTheCarreer p {
+  margin-bottom: 25px;
+}
+
+#awareOfTheCarreer label {
+  display: inline-block;
+  margin-right: 10%;
+}
+
