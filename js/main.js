@@ -484,7 +484,7 @@ $('#secondStepRegistrationBtn').click(function(){
 	function secondStepFeedbackFormFields(){
 		var starRating = $('#secondStepFeedback .star-rating-radio input[type="radio"]');
 		var didYouLikeClassRoom = $('#didYouLikeClassRoom input[type="checkbox"]');
-		var notLikeAboutSession = $('#notLikeAboutSession textarea');
+		var awareOfTheCarreer = $('#awareOfTheCarreer input[type="radio"]');
 
 
 		var finalStatus = 0;
@@ -498,20 +498,29 @@ $('#secondStepRegistrationBtn').click(function(){
 			$('#didYouLikeClassRoom').siblings('.error').hide();
 		}
 
-		var str = notLikeAboutSession.val();
-		if(typeof str === 'string' && str !== '')  {
-			finalStatus += 33;
-			notLikeAboutSession.siblings('.error').hide();
-		} 
+		if(awareOfTheCarreer.is(':checked')){
+			finalStatus += 33;	
+			$('#awareOfTheCarreer').find('.error').hide();
+		}
 
 		$('#secondStepProgressReg .progress').css('width', finalStatus + "%");
 	 	$('#secondStepStarReg .update').css('width', finalStatus + '%');
 	};
 
+	/* in didYouLikeClassRoom field None. I did’t really like the session. selected textbox show hide*/
+	$('#classroomSession_6').change(function(){
+		if($(this).is(':checked')) {
+			$('#notLikeAboutSession').slideDown();	
+		} else {
+			$('#notLikeAboutSession').slideUp();
+		}
+	});
+
+
 	$('#secondStepFeedbackBtn').click(function(){
 		var starRating = $('#secondStepFeedback .star-rating-radio input[type="radio"]');
 		var didYouLikeClassRoom = $('#didYouLikeClassRoom input[type="checkbox"]');
-		var notLikeAboutSession = $('#notLikeAboutSession textarea');
+		var awareOfTheCarreer = $('#awareOfTheCarreer input[type="radio"]');
 
 
 		var finalStatus = 0;
@@ -527,14 +536,12 @@ $('#secondStepRegistrationBtn').click(function(){
 			$('#didYouLikeClassRoom').siblings('.error').show();	
 		}
 
-		var str = notLikeAboutSession.val();
-		if(typeof str === 'string' && str !== '')  {
-			finalStatus += 33;
+		if(awareOfTheCarreer.is(':checked')){
+			finalStatus += 33;	
 		} else {
-			notLikeAboutSession.siblings('.error').show();
+			$('#awareOfTheCarreer').find('.error').show();
 		}
-
-		if(finalStatus == 99){
+		if(finalStatus === 99){
 			
 		} else {
 			return false

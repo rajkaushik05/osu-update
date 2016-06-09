@@ -880,6 +880,9 @@ label .edit {
   margin-bottom: 20px;
 }
 
+#notLikeAboutSession {
+  display: none;
+}
 #notLikeAboutSession textarea,
 #anyOtherCommentForUs textarea {
   height: 87px;
