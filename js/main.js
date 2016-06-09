@@ -2,6 +2,28 @@
 
 $(document).ready(function(){
 
+	/* input type number & Email Validator validate */
+
+	$("input[type='tel']").blur(function(){
+		var el = $(this).val();
+		var strNum = parseInt(el);
+		var numLength = 10;
+		if(typeof strNum === 'number' && el.length === numLength && strNum !== '') {
+			$(this).siblings('p').hide();
+		} else if(el.length !== numLength){
+			$(this).siblings('p').show();
+		}
+	});
+
+	$("input[type='email']").blur(function(){
+		var el = $(this).val();
+		if(validateEmail(el)){
+			$(this).siblings('p').hide();
+		} else{
+			$(this).siblings('p').show();
+		}
+	});
+
 	/*--------------Register Form page-1 form validation ------------------------------------- */
 
 	$('#firstStepRegistration input, #firstStepRegistration select').on('blur change', function(){
@@ -323,30 +345,6 @@ $('#secondStepRegistrationBtn').click(function(){
 		}
 	});
 
-
-	/* input type number & Email Validator validate */
-
-	$("input[type='tel']").change(function(){
-		var el = $(this).val();
-		var strNum = parseInt(el);
-		var numLength = 10;
-		if(typeof strNum === 'number' && el.length === numLength && strNum !== '') {
-			$(this).siblings('p').hide();
-		} else if(el.length !== numLength){
-			$(this).siblings('p').show();
-		}
-	});
-
-	$("input[type='email']").change(function(){
-		var el = $(this).val();
-		if(validateEmail(el)){
-			$(this).siblings('p').hide();
-		} else{
-			$(this).siblings('p').show();
-		}
-	});
-	
-
 /*--------------Feedback page-1 form validation ------------------------------------- */
 	$('#firstStepFeedbackBtn').click(function(){
 		var yourFullNameTextEdit = $('#yourFullNameTextEdit');
@@ -543,8 +541,6 @@ $('#secondStepRegistrationBtn').click(function(){
 		}
 	});
 
-
-	
 
 });
 
