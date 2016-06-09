@@ -278,12 +278,11 @@ $('#secondStepRegistrationBtn').click(function(){
 	var rollValue = yourPhoneNumberText.val();
 	var strNum = parseInt(rollValue);
 	var numLength = 10;
-
 	if(typeof strNum === 'number' && rollValue.length === numLength && strNum !== '') {
-		$(this).siblings('p').hide();
+		$('#yourPhoneNumberText').siblings('p').hide();
 		count++;
-	} else if(rollValue.length !== numLength){
-		$(this).siblings('p').show();
+	} else if(rollValue.length !== numLength && rollValue === ''){
+		$('#yourPhoneNumberText').siblings('p').show();
 	}
 
 	var emailVal = yourEmailAddressText.val();
