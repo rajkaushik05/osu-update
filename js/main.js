@@ -466,9 +466,9 @@ $('#secondStepRegistrationBtn').click(function(){
 	/* disabled button default */
 	$('#careersInterestedInAdded span').click(function(){
 		if($('#careersInterestedInAdded').hasClass('disabled')){
-			alert('true');
+			return false	
 		}
-		return false
+		
 	});
 
 	/* Code for Star Rating */
