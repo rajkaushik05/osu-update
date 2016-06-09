@@ -442,6 +442,7 @@ p.error {
     display: block;
     font-size: 16px;
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .fields .field {
@@ -717,6 +718,7 @@ p.error {
 .label-text {
   font-size: 16px;
   margin-bottom: 28px;
+  font-weight: 700;
 }
 
 #thirdStepRegistration .video-wrap {
@@ -831,6 +833,7 @@ label .edit {
 .star-rating-wrap .text {
   font-size: 14px;
   display: inline-block;
+  font-weight: 700;
 }
 
 .star-rating-radio {
