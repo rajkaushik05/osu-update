@@ -214,6 +214,7 @@ $(document).ready(function(){
 		subjects.forEach(function(sub){
 			$('#xiConsiderSubjectAdded').append('<li>'+ sub.title +' </li>');
 		});
+		$('#xiConsiderSubjectAdded').parents('.field').find('.thumb-up img').show();
 		$('#xiSubjectConsiderText').show();
 	});
 
