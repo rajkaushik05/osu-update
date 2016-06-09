@@ -944,4 +944,7 @@ label .edit {
   font-weight: 700;
 }
 
-
+#xiSubjectConsiderText {
+  margin-top: 8px;
+  display: none; 
+}
