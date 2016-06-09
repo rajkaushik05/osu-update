@@ -1,115 +1,46 @@
-"use strict"
-
-
-/*Register Form page-1 form validation */
-
-$('#firstStepRegistration input, #firstStepRegistration select').on('blur change', function(){
-	registerFirstFormFields();
-});
-
-function registerFirstFormFields(){
-	var yourFullNameText = $('#yourFullNameText');
-	var rollNumberText = $('#rollNumberText');
-	var classSelect = $('#classSelect');
-	var sectionSelect = $('#sectionSelect');
-	var yourSchoolText = $('#yourSchoolText');
-
-	var count = 1;
-	var finalStatus = 0;
-	var ratio = 20;
-
-	var nameVal = yourFullNameText.val();
-	if(typeof nameVal === 'string' && nameVal !== '') {
-		finalStatus += ratio;
-		yourFullNameText.siblings('p').hide();
-		$('#yourFullNameText').parents('.field').find('.thumb-up img').show();
-	} else {
-		yourFullNameText.siblings('p').show();
-		$('#yourFullNameText').parents('.field').find('.thumb-up img').hide();
-	}
-
-	var countField = 0;
-	var rollValue= rollNumberText.val();
-	if(typeof rollValue === 'string' && rollValue !== ''){
-		finalStatus  += ratio;
-		countField += 1;
-	}
-
-	var classVal= classSelect.val();
-	if(typeof classVal === 'string' && classVal !== ''){
-		finalStatus  += ratio;
-		countField += 1;
-	}
-
-	var sectionVal= sectionSelect.val();
-	if(typeof sectionVal === 'string' && sectionVal !== ''){
-		finalStatus  += ratio;
-		countField += 1;
-	}
-
-	if(countField === 3){
-		$('#rollNumberText').parents('.fields-group').find('.thumb-up img').show();
-	} else  {
-		$('#rollNumberText').parents('.fields-group').find('.thumb-up img').hide();
-	}
-
-	var schoolVal = yourSchoolText.val();
-	if(typeof schoolVal === 'string' && schoolVal !== '') {
-		finalStatus += ratio;
-		yourSchoolText.siblings('p').hide();
-		$('#yourSchoolText').parents('.field').find('.thumb-up img').show();
-	} else {
-		yourSchoolText.siblings('p').show();
-		$('#yourSchoolText').parents('.field').find('.thumb-up img').hide();
-	}
-
- 	finalStatus = Math.round(finalStatus);
- 	$('#firstStepProgressReg').addClass('progress-started');
- 	$('#firstStepProgressReg .progress').css('width', finalStatus + "%");
- 	$('#firstStepStarReg .update').css('width', finalStatus + '%');
- 	
+	var d = {
+	data: [	 
+		{'title':"Mathematics", 'type':['no_medical', 'commerce_with-maths'] },
+		{'title':"Physics", 'type': ['no_medical'] },
+		{'title':"Chemistry", 'type': ['no_medical', 'medical'] },
+		{'title':"Biology", 'type': ['medical']},
+		{'title':"English", 'type': ['no_medical', 'medical', 'commerce_with-maths', 'commerce_without-maths']},
+		{'title':"Engineering Graphics", 'type': []},
+		{'title':"Accounts", 'type': ['commerce_with-maths', 'commerce_without-maths']},
+		{'title':"Economics", 'type': ['commerce_with-maths', 'commerce_without-maths']},
+		{'title':"Business Studies", 'type': ['commerce_with-maths', 'commerce_without-maths']},
+		{'title':"Computers", 'type': []},
+		{'title':"Fashion Studies", 'type': []},
+		{'title':"Physical Education", 'type': []},
+		{'title':"Geography ", 'type': []},
+		{'title':"Political Science", 'type': []},
+		{'title':"History", 'type': []},
+		{'title':"Home Science", 'type': []},
+		{'title':"Fine Arts", 'type': []},
+		{'title':'Agriculture','type': []},
+		{'title':'Multimedia and Web Technology','type': []},
+		{'title':'Sociology','type': []},
+		{'title':'Music and Dance','type': []},
+		{'title':'Entrepreneurship','type': []},
+		{'title':'Heritage Crafts','type': []},
+		{'title':'Mass Media Studies','type': []},
+		{'title':'Legal Studies','type': []},
+		{'title':'Human Rights and Gender Studies','type': []},
+		{'title':'National Cadet Crops','type': []}
+	]
 };
-
-
-
-$('#firstStepRegistrationBtn').click(function(){
-	var yourFullNameText = $('#yourFullNameText');
-	var rollNumberText = $('#rollNumberText');
-	var classSelect = $('#classSelect');
-	var sectionSelect = $('#sectionSelect');
-	var yourSchoolText = $('#yourSchoolText');
-
-	var registerFirstForm = [yourFullNameText, rollNumberText, classSelect, sectionSelect, yourSchoolText];
-	var count = 1;
-	var finalStatus = 0;
- 	for(var i=0; i<registerFirstForm.length; i++){
- 		var str = registerFirstForm[i].val();
- 		if(typeof str === 'string' && str !== '') {
- 			var ratio = 20;
- 			var getStatus = ratio * count;
- 			finalStatus = getStatus;
- 			count++;
- 		} else if(str === "" || str === null) {
- 			registerFirstForm[i].siblings('p').show();
- 		} 
- 	}
- 	if(count-1 == registerFirstForm.length){
- 		$(this).attr('href', 'register-1.html');
- 	} else {
- 		return false;
- 	}
+var no_medical	= d.data.filter(function(d){
+	return (d.type.indexOf('no_medical') !== -1);
+}).map(function(d){
+	var d = JSON.parse(JSON.stringify(d));
+	d.editable = false;
+	return d;
 });
 
-/* auto complete filelds*/
-$('.auto-search input').focus(function(){
-	$(this).siblings('.auto-search-field').slideDown();
+var medical	= d.data.filter(function(d){
+	return (d.type.indexOf('no_medical') !== -1);
+}).map(function(d){
+	var d = JSON.parse(JSON.stringify(d));
+	d.editable = false;
+	return d;
 });
-
-$('.auto-search input').blur(function(){
-	$(this).siblings('.auto-search-field').slideUp();
-});
-
-/*$('#xiSubjectConsiderText').focus(function(){
-	$('#xiSubjectConsiderAuto').slideToggle();
-});
-*/

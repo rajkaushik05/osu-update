@@ -138,53 +138,44 @@ $(document).ready(function(){
  	});
 
  	var subjectConsider = {
-		data: [	 
-		{'title':"Mathematics", 'type':['no_medical', 'commerce_with_maths'] },
-		{'title':"Physics", 'type': ['no_medical'] },
-		{'title':"Chemistry", 'type': ['no_medical', 'medical'] },
-		{'title':"Biology", 'type': ['medical']},
-		{'title':"English", 'type': ['no_medical', 'medical', 'commerce_with_maths', 'commerce_without_maths']},
-		{'title':"Engineering Graphics", 'type': []},
-		{'title':"Accounts", 'type': ['commerce_with_maths', 'commerce_without_maths']},
-		{'title':"Economics", 'type': ['commerce_with_maths', 'commerce_without_maths']},
-		{'title':"Business Studies", 'type': ['commerce_with_maths', 'commerce_without_maths']},
-		{'title':"Computers", 'type': []},
-		{'title':"Fashion Studies", 'type': []},
-		{'title':"Physical Education", 'type': []},
-		{'title':"Geography ", 'type': []},
-		{'title':"Political Science", 'type': []},
-		{'title':"History", 'type': []},
-		{'title':"Home Science", 'type': []},
-		{'title':"Fine Arts", 'type': []},
-		{'title':'Agriculture','type': []},
-		{'title':'Multimedia and Web Technology','type': []},
-		{'title':'Sociology','type': []},
-		{'title':'Music and Dance','type': []},
-		{'title':'Entrepreneurship','type': []},
-		{'title':'Heritage Crafts','type': []},
-		{'title':'Mass Media Studies','type': []},
-		{'title':'Legal Studies','type': []},
-		{'title':'Human Rights and Gender Studies','type': []},
-		{'title':'National Cadet Crops','type': []}
-	],
-
-		getValue: "title",
+		data: [
+			"Mathematics",
+			"Physics",
+			"Chemistry",
+			"Biology",
+			"Biotechnology",
+			"Engineering Graphics",
+			"Economics",
+			"Political Science",
+			"History",
+			"Geography",
+			"Business Studies",
+			"Accountancy",
+			"Home Science",
+			"Fine Arts",
+			"Agriculture",
+			"Computer Science",
+			"Multimedia and Web Technology",
+			"Sociology",
+			"Psychology",
+			"Philosophy",
+			"Physical Education",
+			"Music and Dance",
+			"Entrepreneurship",
+			"Fashion Studies",
+			"Creative Writing and Translation Studies",
+			"Heritage Crafts",
+			"Graphic Design",
+			"Mass Media Studies",
+			"Legal Studies",
+			"Human Rights and Gender Studies",
+			"National Cadet Crops"
+		],
 		list: {
 			maxNumberOfElements: 8,
-			matchResponseProperty:'title',
 			onChooseEvent: function() {
-				var value = $("#xiSubjectConsiderText").getSelectedItemData().title;
-				var checkVal = false;
-				$('#xiConsiderSubjectAdded li').each(function(i, el){
-					if($(this).text().trim() === value){
-						checkVal = true;
-						return false
-					} 
-				});
-				if(checkVal !== true) {
-					$('#xiConsiderSubjectAdded').append('<li>'+value+' <span class="close"></span></li>');
-				}
-				
+				var value = $("#xiSubjectConsiderText").getSelectedItemData();
+				$('#xiConsiderSubjectAdded').append('<li>'+value+' <span class="close"></span></li>');
 				$('#xiConsiderSubjectAdded').parents('.field').find('.thumb-up img').show();
 				$("#xiSubjectConsiderText").val('');
 			},
@@ -193,30 +184,9 @@ $(document).ready(function(){
 			}
 		}
 	};
-
 	$("#xiSubjectConsiderText").easyAutocomplete(subjectConsider);
 
-	function getSubjectByType(type){
-	  return subjectConsider.data.filter(function(d){
-			return (d.type.indexOf(type) !== -1);
-		}).map(function(d){
-			var d = JSON.parse(JSON.stringify(d));
-			d.editable = false;
-			return d;
-		});
-	}
-
 	/* subject option and related subject list */
-	$('#xiSubjectConsiderSelect').on('change', function(){
-		var el = $(this).val();
-		var subjects = getSubjectByType(el);
-		$('#xiConsiderSubjectAdded').empty();
-		subjects.forEach(function(sub){
-			$('#xiConsiderSubjectAdded').append('<li>'+ sub.title +' </li>');
-		});
-		$('#xiSubjectConsiderText').show();
-	});
-
 	
 
 	/*Career you are interested in search field*/
@@ -233,11 +203,11 @@ $(document).ready(function(){
 			{"count": "1", "career": "Doctor"},
 			{"count": "2", "career": "Electrical Engineer"},
 			{"count": "3", "career": "Paramilitary"},
-			{"count": "4", "career": "Teacher"},
-			{"count": "5", "career": "Mechanical Engineer"},
-			{"count": "6", "career": "Civil Engineer"},
-			{"count": "7", "career": "Civil Architect"},
-			{"count": "8", "career": "Mechanical"}
+			{"count": "3", "career": "Teacher"},
+			{"count": "3", "career": "Mechanical Engineer"},
+			{"count": "3", "career": "Civil Engineer"},
+			{"count": "3", "career": "Civil Architect"},
+			{"count": "3", "career": "Mechanical"}
 		],
 
 		getValue: "career",
