@@ -15,8 +15,8 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body>
-    <div class="container gray-bg" id="secondStepFeedback">
-      <form action="feedback-2.html">
+    <div class="container gray-bg" id="thirdStepFeedback">
+      <form action="">
         <header>
           <div class="logo">
             <img src="img/logo.png" alt="osu logo">
@@ -34,9 +34,9 @@
                   <span class="circle"></span>
                   <span class="progress" style="width: 100%"></span>
                 </li>
-                <li class="progress-started" id="thirdStepProgressReg">
+                <li class="progress-completed" id="thirdStepProgressReg">
                   <span class="circle"></span>
-                  <span class="progress" style="width: 0%"></span>
+                  <span class="progress" style="width: 100%"></span>
                 </li>
               </ul>
             </div>
@@ -46,63 +46,21 @@
           </div>
           <div class="star-progress">
             <div class="col-9 row">
-              <h2>Tell us about yourself</h2>
-              <span class="star-img" id="thirdStepStarReg"><span class="update" style="width:0%"></span></span>
+              <h2>Thank you!</h2>
+              <span class="star-img" id="thirdStepStarReg"><span class="update" style="width:100%"></span></span>
             </div>
           </div>
         </header>
-        <h1>Here is Feedback form Simple page</h1>
-        <div class="fields">
-          <div class="padding select-options field">
-            <p class="label-text">What did you like about the class room session? <span class="star">*</span></p>
-            <div class="checkbox-style" id="didYouLikeClassRoom">
-              <input type="checkbox" name="classRoomSession" id="classroomSession_1">
-              <label for="classroomSession_1"><span></span>Fun and playful environment</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_2">
-              <label for="classroomSession_2"><span></span>I was able to get all the information I needed</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_3">
-              <label for="classroomSession_3"><span></span>Sessions were not too long yet had all the information</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_4">
-              <label for="classroomSession_4"><span></span>I have a very clear idea of what my career path is</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_5">
-              <label for="classroomSession_5"><span></span>The videos were excellent</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_6">
-              <label for="classroomSession_6"><span></span>None. I did’t really like the session.</label>
-            </div>
-            <p class="error">Please select options</p>
-          </div>
-
-          <div class="padding field" id="notLikeAboutSession">
-            <div class="col-9">
-              <label for="">Sad to hear that! What did you NOT like about the session? <span class="star">*</span></label>
-              <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
-              <p class="error">Please write comment</p>  
-            </div>
-          </div>
-
-          <div class="padding field" id="awareOfTheCarreer">
-            <div class="col-9">
-              <p class="label-text">Are you aware of the careers impacted by subject choices?</p>
-              <div class="radio-style">
-                <input type="radio" name="careerImpactBySubject" id="careerImpactBySubject_1">
-                <label for="careerImpactBySubject_1"><span></span>Yes</label>
-                <input type="radio" name="careerImpactBySubject" id="careerImpactBySubject_2">
-                <label for="careerImpactBySubject_2"><span></span>No</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="padding field" id="anyOtherCommentForUs">
-            <div class="col-9">
-              <label for="">Any other comments for us?</label>
-              <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>  
-            </div>
-          </div>
-
-          <div class="action">  
-            <button class="btn btn-primary" id="secondStepFeedbackBtn">Continue</button>
-          </div>
+        <div class="padding video-heading">
+          <h3>For being an awesome listener, you get a sneak peak at what our program would cover</h3>
         </div>
+        <div class="video-wrap">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PqHg_hvoETs?list=PLlSqH-JRkEfgDio6revfbBfwWhlpary5_" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="row special-msg">
+          <img src="img/discount-icon.png" alt="special-offer-icon">
+          <p>You also get a 15% discount when you register online with us for a counseling session using the code <span class="code">"APT15"</span> at www.onesteupup.in</p>
+        </div>  
       </form>
     </div>
     <script src="js/vendor/jquery-1.12.0.min.js"></script>
