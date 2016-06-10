@@ -70,8 +70,10 @@ $(document).ready(function(){
 		}
 
 		if(countField === 3){
+			$('#rollNumberText').parents('.fields-group').find('.error-tooltips').hide();
 			$('#rollNumberText').parents('.fields-group').find('.thumb-up img').show();
 		} else  {
+			$('#rollNumberText').parents('.fields-group').find('.error-tooltips').show();
 			$('#rollNumberText').parents('.fields-group').find('.thumb-up img').hide();
 		}
 
