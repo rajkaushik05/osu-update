@@ -134,13 +134,6 @@ select[disabled='disabled']{
   background-image: none;
 }
 
-p.error {
-  color: red;
-  margin: 0;
-  font-size: 13px;
-  display: none;
-}
-
 .star {
     color: red;
     display: inline-block;
@@ -455,9 +448,10 @@ p.error {
 
 .fields .field .thumb-up {
     padding-left: 40px;
+    position: relative;
 }
 
-.fields .field .thumb-up img {
+.thumb-up img {
   display: none;
 }
 
@@ -688,19 +682,31 @@ p.error {
   font-size: 16px;
   margin-bottom: 30px;
   font-weight: 700;
+  padding: 0 30px;
 }
 
 .parents-details .row {
+  position: relative;
+}
+
+.parents-details .field {
   margin-bottom: 10px;
+}
+
+.parents-details .row {
   align-items: center;
   -webkit-align-items: center;
 }
 
-.parents-details .row [class^="col-"]{
-  padding: 0;
+.parents-details .group label {
+  width: calc(8.33333%*4);
 }
 
-.parents-details .checkbox-style {
+.parents-details .group input {
+  width: calc(8.33333%*8);
+}
+
+.parents-details .checkbox-style label {
   width: calc(8.33333%*8);
   padding-left: calc(8.33333%*4);
   margin-top: 15px;
@@ -709,6 +715,14 @@ p.error {
 .parents-details .checkbox-style label {
   color: #6e7174;
   font-size: 14px;
+}
+
+.parents-details .error {
+  top: -22px;
+}
+
+.parents-details .checkbox-style label span {
+  margin-left: 6px;
 }
 
 .parents-details .checkbox-style input[type='checkbox']:checked + label {
@@ -880,6 +894,40 @@ label .edit {
   margin-bottom: 20px;
 }
 
+#secondStepFeedback .select-options {
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+}
+
+#secondStepFeedback .star-rating-wrap {
+  position: relative;
+}
+
+#secondStepFeedback .star-rating-wrap .error {
+  top: 50px;
+  width: 50%;
+  right: 0;
+  left: initial;
+}
+
+@media only screen and (max-width: 630px){
+  #secondStepFeedback .star-rating-wrap .error {
+    top: 90px;  
+    left: 0;
+  }
+}
+
+#secondStepFeedback .star-rating-wrap .error:before {
+    right: 37px;
+    top: -17px;
+    left: initial;
+    transform: rotate(90deg);
+}
+
+#secondStepFeedback .select-options .error {
+  top: 0;
+}
+
 #notLikeAboutSession {
   display: none;
 }
@@ -946,24 +994,27 @@ label .edit {
 
 #xiSubjectConsiderText {
   margin-top: 8px;
-  display: none; 
+  display: none;
 }
 
-.error-tooltips {
+.error {
   position: absolute;
-  top: 0;
-  right: 50px;
+  top: -50px;
+  left: 0;
   background-color: #ffffff;
   padding: 15px 19px;
   border-radius: 10px;
   border: 1px solid rgb(195, 206, 218);
   color: red;
-  width: 195px;
+  font-size: 13px;
+  width: 100%;
   box-sizing: border-box;
-  
+  display: none;
+  margin: 0;
+  min-height: 48px;
 }
 
-.error-tooltips:before {
+.error:before {
   content: '';
   position: absolute;
   left: -12px;

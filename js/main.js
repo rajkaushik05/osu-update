@@ -9,18 +9,18 @@ $(document).ready(function(){
 		var strNum = parseInt(el);
 		var numLength = 10;
 		if(typeof strNum === 'number' && el.length === numLength && strNum !== '') {
-			$(this).siblings('p').hide();
+			$(this).parents('.field').find('.error').hide();
 		} else if(el.length !== numLength){
-			$(this).siblings('p').show();
+			$(this).parents('.field').find('.error').fadeIn();
 		}
 	});
 
 	$("input[type='email']").blur(function(){
 		var el = $(this).val();
 		if(validateEmail(el)){
-			$(this).siblings('p').hide();
+			$(this).parents('.field').find('.error').hide();
 		} else{
-			$(this).siblings('p').show();
+			$(this).parents('.field').find('.error').fadeIn();
 		}
 	});
 
@@ -39,12 +39,12 @@ $(document).ready(function(){
 
 		
 		if($(this).attr('id') == 'yourFullNameText' && $(this).val() === ''){
-			$(this).siblings('p').show();
+			$(this).parents('.field').find('.error').fadeIn();
 		}
 		var nameVal = yourFullNameText.val();
 		if(typeof nameVal === 'string' && nameVal !== '') {
 			finalStatus += ratio;
-			yourFullNameText.siblings('p').hide();
+			$('#yourFullNameText').parents('.field').find('.error').hide();
 			$('#yourFullNameText').parents('.field').find('.thumb-up img').show();
 		} else {
 			$('#yourFullNameText').parents('.field').find('.thumb-up img').hide();
@@ -52,38 +52,47 @@ $(document).ready(function(){
 		
 		var countField = 0;
 		var rollValue= rollNumberText.val();
+		if($(this).attr('id') == 'rollNumberText' && $(this).val() === ''){
+			$(this).parents('.field').find('.error').fadeIn();
+		}
 		if(typeof rollValue === 'string' && rollValue != '') {
 			finalStatus  += ratio;
 			countField += 1;
 		}
 		
 		var classVal= classSelect.val();
+		if($(this).attr('id') == 'classSelect' && $(this).val() === ''){
+			$(this).parents('.field').find('.error').fadeIn();
+		}
 		if(typeof classVal === 'string' && classVal !== ''){
 			finalStatus  += ratio;
 			countField += 1;
 		}
 
 		var sectionVal= sectionSelect.val();
+		if($(this).attr('id') == 'sectionVal' && $(this).val() === ''){
+			$(this).parents('.field').find('.error').fadeIn();
+		}
 		if(typeof sectionVal === 'string' && sectionVal !== ''){
 			finalStatus  += ratio;
 			countField += 1;
 		}
 
 		if(countField === 3){
-			$('#rollNumberText').parents('.fields-group').find('.error-tooltips').hide();
+			$('#rollNumberText').parents('.fields-group').find('.error').hide();
 			$('#rollNumberText').parents('.fields-group').find('.thumb-up img').show();
 		} else  {
-			$('#rollNumberText').parents('.fields-group').find('.error-tooltips').show();
 			$('#rollNumberText').parents('.fields-group').find('.thumb-up img').hide();
 		}
 
 		var schoolVal = yourSchoolText.val();
 		if($(this).attr('id') == 'yourSchoolText' && $(this).val() === ''){
-			$(this).siblings('p').show();
-		}
+			$(this).parents('.field').find('.error').fadeIn();
+		} 
+
 		if(typeof schoolVal === 'string' && schoolVal !== '') {
 			finalStatus += ratio;
-			yourSchoolText.siblings('p').hide();
+			$('#yourSchoolText').parents('.field').find('.error').hide();
 			$('#yourSchoolText').parents('.field').find('.thumb-up img').show();
 		} else {
 			$('#yourSchoolText').parents('.field').find('.thumb-up img').hide();
@@ -120,7 +129,7 @@ $(document).ready(function(){
 	 			finalStatus = getStatus;
 	 			count++;
 	 		} else if(str === "" || str === null) {
-	 			registerFirstForm[i].siblings('p').show();
+	 			registerFirstForm[i].parents('.fields').find('.error').fadeIn();
 	 		} 
 	 	}
 	 	if(count-1 == registerFirstForm.length){
@@ -135,17 +144,18 @@ $(document).ready(function(){
  		$(this).parent().remove();
  		var list = $('#xiConsiderSubjectAdded li');
  		if(list.length == 0){
+ 			$('#xiSubjectConsiderText').hide();
  			$('#xiConsiderSubjectAdded').parents('.field').find('.thumb-up img').hide();
  		}
  	});
 
  	var subjectConsider = {
 		data: [	 
-		{'title':"Mathematics", 'type':['no_medical', 'commerce_with_maths'] },
-		{'title':"Physics", 'type': ['no_medical'] },
-		{'title':"Chemistry", 'type': ['no_medical', 'medical'] },
+		{'title':"Mathematics", 'type':['non_medical', 'commerce_with_maths'] },
+		{'title':"Physics", 'type': ['non_medical'] },
+		{'title':"Chemistry", 'type': ['non_medical', 'medical'] },
 		{'title':"Biology", 'type': ['medical']},
-		{'title':"English", 'type': ['no_medical', 'medical', 'commerce_with_maths', 'commerce_without_maths']},
+		{'title':"English", 'type': ['non_medical', 'medical', 'commerce_with_maths', 'commerce_without_maths']},
 		{'title':"Engineering Graphics", 'type': []},
 		{'title':"Accounts", 'type': ['commerce_with_maths', 'commerce_without_maths']},
 		{'title':"Economics", 'type': ['commerce_with_maths', 'commerce_without_maths']},
@@ -208,17 +218,38 @@ $(document).ready(function(){
 		});
 	}
 
-	/* subject option and related subject list */
-	$('#xiSubjectConsiderSelect').on('change', function(){
-		var el = $(this).val();
-		var subjects = getSubjectByType(el);
-		$('#xiConsiderSubjectAdded').empty();
-		subjects.forEach(function(sub){
-			$('#xiConsiderSubjectAdded').append('<li>'+ sub.title +' </li>');
-		});
-		$('#xiConsiderSubjectAdded').parents('.field').find('.thumb-up img').show();
-		$('#xiSubjectConsiderText').show();
-	});
+	var selectStreem = {
+		data:[
+			{"type": "non_medical", "career": "Non Medical"},
+			{"type": "medical", "career": "Medical"},
+			{"type": "commerce_with_maths", "career": "Commerce With Maths"},
+			{"type": "commerce_without_maths", "career": "Commerce Without Maths"},
+			{"type": "commerce_without_maths", "career": "Commerce Without Maths"}
+		],
+
+		getValue: "career",
+
+		list: {
+			maxNumberOfElements: 8,
+			onChooseEvent: function() {
+				var streamvalue = $("#xiSubjectConsiderSelect").getSelectedItemData().type;
+				var subjects = getSubjectByType(streamvalue);
+				$('#xiConsiderSubjectAdded').empty();
+				subjects.forEach(function(sub){
+					$('#xiConsiderSubjectAdded').append('<li>'+ sub.title +' <span class="close"></span></li>');
+				});
+				$('#xiConsiderSubjectAdded').parents('.field').find('.thumb-up img').show();
+				$('#xiSubjectConsiderText').show();
+
+				$("#xiSubjectConsiderSelect").val('');
+			},
+			match :  {
+				enabled: true
+			}
+		}
+	};
+
+	$("#xiSubjectConsiderSelect").easyAutocomplete(selectStreem);
 
 	
 
@@ -297,27 +328,28 @@ $('#secondStepRegistration input').on('blur change', function(){
 	var ratio = 50;
 	
 
-	var rollValue = yourPhoneNumberText.val();
-	var strNum = parseInt(rollValue);
+	var phoneValue = yourPhoneNumberText.val();
+	var strNum = parseInt(phoneValue);
 	var numLength = 10;
-	if($(this).attr('id') === 'yourPhoneNumberText' && rollValue.length !== numLength) {
-		$(this).siblings('p').show();
+	if($(this).attr('id') === 'yourPhoneNumberText' && phoneValue.length !== numLength  && phoneValue === '') {
+		$(this).parents('.field').find('.error').fadeIn();
 	}
-	if(typeof strNum === 'number' && rollValue.length === numLength && strNum !== '') {
+
+	if(typeof strNum === 'number' && phoneValue.length === numLength && strNum !== '') {
 		finalStatus  += ratio;
-		$(this).siblings('p').hide();
-		$(this).parents('.field').find('.thumb-up img').show();
-	} else if(rollValue.length !== numLength){
-		$(this).parents('.field').find('.thumb-up img').hide();
+		$('#yourPhoneNumberText').parents('.field').find('.error').hide();
+		$('#yourPhoneNumberText').parents('.field').find('.thumb-up img').show();
+	} else if(phoneValue.length !== numLength){
+		$('#yourPhoneNumberText').parents('.field').find('.thumb-up img').hide();
 	}
 
 	var emailVal = yourEmailAddressText.val();
-	if($(this).attr('id') === 'yourEmailAddressText' && emailVal !== '' && validateEmail(emailVal) === false){
-		$('#yourEmailAddressText').siblings('p').show();
+	if($(this).attr('id') === 'yourEmailAddressText' && emailVal === '' && validateEmail(emailVal) === false){
+		$('#yourEmailAddressText').parents('.field').find('.error').fadeIn();
 	}
 	if(validateEmail(emailVal)){
 		finalStatus  += ratio;
-		$('#yourEmailAddressText').siblings('p').hide();
+		$('#yourEmailAddressText').parents('.field').find('.error').hide();
 		$('#yourEmailAddressText').parents('.field').find('.thumb-up img').show();
 	} else{
 		$('#yourEmailAddressText').parents('.field').find('.thumb-up img').hide();
@@ -348,18 +380,19 @@ $('#secondStepRegistrationBtn').click(function(){
 	var strNum = parseInt(rollValue);
 	var numLength = 10;
 	if(typeof strNum === 'number' && rollValue.length === numLength && strNum !== '') {
-		$('#yourPhoneNumberText').siblings('p').hide();
+		$('#yourPhoneNumberText').parents('.field').find('.error').hide();
 		count++;
 	} else if(rollValue.length !== numLength && rollValue === ''){
-		$('#yourPhoneNumberText').siblings('p').show();
+		$('#yourPhoneNumberText').parents('.field').find('.error').fadeIn();
 	}
 
 	var emailVal = yourEmailAddressText.val();
 	if(validateEmail(emailVal)){
+		$('#yourEmailAddressText').parents('.field').find('.error').hide();
 		$('#yourEmailAddressText').siblings('p').hide();
 		count++;
 	} else{
-		$('#yourEmailAddressText').siblings('p').show();
+		$('#yourEmailAddressText').parents('.field').find('.error').fadeIn();
 	}
 
  	if(count-1 === 2){
@@ -376,7 +409,7 @@ $('#secondStepRegistrationBtn').click(function(){
 		if(agreeToAttend.is(':checked')){
 			var finalStatus = 100;
 			$(this).parents('.field').find('.thumb-up img').show();
-			$(this).siblings('.error').hide();
+			$(this).parents('.field').find('.error').hide();
 		}
 		$('#thirdStepProgressReg').removeClass('progress-started').addClass('progress-completed');
 		$('#thirdStepProgressReg .progress').css('width', finalStatus + "%");
@@ -387,7 +420,7 @@ $('#secondStepRegistrationBtn').click(function(){
 		if(agreeToAttend.is(':checked')){
 			return false;
 		} else{
-			$('#agreeToAttendProgram .error').show();
+			$('#agreeToAttendProgram').siblings('.thumb-up').find('.error').fadeIn();
 			return false;
 		}
 	});
@@ -411,7 +444,8 @@ $('#secondStepRegistrationBtn').click(function(){
 	 			finalStatus = getStatus;
 	 			count++;
 	 		} else if(str === "" || str === null) {
-	 			registerFirstForm[i].siblings('p').show();
+
+	 			registerFirstForm[i].parents('.field').find('.error').fadeIn();
 	 		} 
 	 	}
 	 	if(count-1 == registerFirstForm.length){
@@ -434,12 +468,12 @@ $('#secondStepRegistrationBtn').click(function(){
 
 		
 		if($(this).attr('id') == 'yourFullNameTextEdit' && $(this).val() === ''){
-			$(this).siblings('p').show();
+			$(this).parents('.field').find('.error').fadeIn();
 		}
 		var nameVal = yourFullNameTextEdit.val();
 		if(typeof nameVal === 'string' && nameVal !== '') {
 			finalStatus += ratio;
-			yourFullNameTextEdit.siblings('p').hide();
+			$('#yourFullNameTextEdit').parents('.field').find('.error').hide();
 			$('#yourFullNameTextEdit').parents('.field').find('.thumb-up img').show();
 		} else {
 			$('#yourFullNameTextEdit').parents('.field').find('.thumb-up img').hide();
@@ -447,24 +481,34 @@ $('#secondStepRegistrationBtn').click(function(){
 		
 		var countField = 0;
 		var rollValue= rollNumberTextEdit.val();
+		if($(this).attr('id') == 'rollNumberTextEdit' && $(this).val() === ''){
+			$(this).parents('.field').find('.error').fadeIn();
+		}
 		if(typeof rollValue === 'string' && rollValue != '') {
 			finalStatus  += ratio;
 			countField += 1;
 		}
 		
 		var classVal= classSelectEdit.val();
+		if($(this).attr('id') == 'classSelectEdit' && $(this).val() === ''){
+			$(this).parents('.field').find('.error').fadeIn();
+		}
 		if(typeof classVal === 'string' && classVal !== ''){
 			finalStatus  += ratio;
 			countField += 1;
 		}
 
 		var sectionVal= sectionSelectEdit.val();
+		if($(this).attr('id') == 'sectionSelectEdit' && $(this).val() === ''){
+			$(this).parents('.field').find('.error').fadeIn();
+		}
 		if(typeof sectionVal === 'string' && sectionVal !== ''){
 			finalStatus  += ratio;
 			countField += 1;
 		}
 
 		if(countField === 3){
+			$('#rollNumberTextEdit').parents('.field').find('.error').hide();
 			$('#rollNumberTextEdit').parents('.fields-group').find('.thumb-up img').show();
 		} else  {
 			$('#rollNumberTextEdit').parents('.fields-group').find('.thumb-up img').hide();
@@ -472,11 +516,11 @@ $('#secondStepRegistrationBtn').click(function(){
 
 		var schoolVal = yourSchoolTextEdit.val();
 		if($(this).attr('id') == 'yourSchoolTextEdit' && $(this).val() === ''){
-			$(this).siblings('p').show();
+			$(this).parents('.field').find('.error').fadeIn();
 		}
 		if(typeof schoolVal === 'string' && schoolVal !== '') {
 			finalStatus += ratio;
-			yourSchoolTextEdit.siblings('p').hide();
+			$('#yourSchoolTextEdit').parents('.field').find('.error').hide();
 			$('#yourSchoolTextEdit').parents('.field').find('.thumb-up img').show();
 		} else {
 			$('#yourSchoolTextEdit').parents('.field').find('.thumb-up img').hide();
@@ -542,12 +586,12 @@ $('#secondStepRegistrationBtn').click(function(){
 
 		if(didYouLikeClassRoom.is(':checked')){
 			finalStatus += 33;	
-			$('#didYouLikeClassRoom').siblings('.error').hide();
+			$('#didYouLikeClassRoom').parents('.field').find('.error').hide();
 		}
 
 		if(awareOfTheCarreer.is(':checked')){
 			finalStatus += 33;	
-			$('#awareOfTheCarreer').find('.error').hide();
+			$('#awareOfTheCarreer').parents('.field').find('.error').hide();
 		}
 
 		$('#secondStepProgressReg .progress').css('width', finalStatus + "%");
@@ -574,24 +618,24 @@ $('#secondStepRegistrationBtn').click(function(){
 		if(starRating.is(':checked')) {
 			finalStatus += 33;		
 		} else {
-			$('.star-rating-radio').siblings('.error').show();
+			$('.star-rating-radio').siblings('.error').fadeIn();
 		}
 
 		if(didYouLikeClassRoom.is(':checked')){
 			finalStatus += 33;	
 		} else {
-			$('#didYouLikeClassRoom').siblings('.error').show();	
+			$('#didYouLikeClassRoom').parents('.field').find('.error').fadeIn();	
 		}
 
 		if(awareOfTheCarreer.is(':checked')){
 			finalStatus += 33;	
 		} else {
-			$('#awareOfTheCarreer').find('.error').show();
+			$('#awareOfTheCarreer').parents('.field').find('.error').fadeIn();
 		}
 		if(finalStatus === 99){
 			
 		} else {
-			return false
+			return false;
 		}
 	});
 
