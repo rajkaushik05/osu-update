@@ -56,9 +56,9 @@
             <div class="col-9">
               <label for="yourPhoneNumberText">Your Phone Number <span class="star">*</span></label>
               <input type="tel" class="form-control" id="yourPhoneNumberText" value=""  placeholder="Valid phone number">
-              <p class="error">Enter valid phone number</p>
             </div>
             <div class="thumb-up col-3">
+              <p class="error">Enter valid phone number</p>
               <img src="img/thumb-up.png" alt="Thumb up">
             </div>
           </div>
@@ -66,109 +66,118 @@
             <div class="col-9">
               <label for="yourEmailAddressText">Your Email Address <span class="star">*</span></label>
               <input type="email" class="form-control" id="yourEmailAddressText" value="" placeholder="Eg : username@domain.com">
-              <p class="error">Enter valid email address</p>
             </div>
             <div class="thumb-up col-3">
               <img src="img/thumb-up.png" alt="Thumb up">
+              <p class="error">Enter valid email address</p>
             </div>
           </div>
-          <div class="row parents-details">
-            <div class="col-9">
+          <div class="parents-details">
               <h3>Your Parent's Details</h3>
-              <div class="row">
-                <div class="col-4">
+              <div class="row field">
+                <div class="row col-9 group">
                   <label for="dadNameText">Your Dad's <br>Name</label>  
-                </div>
-                <div class="col-8">
                   <input type="text" class="form-control" id="dadNameText" placeholder="Dad's name">  
                 </div>
+                <div class="thumb-up col-3">
+                  <img src="img/thumb-up.png" alt="Thumb up">
+                </div>
               </div>
-              <div class="row">
-                <div class="col-4">
+              <div class="row field">
+                <div class="row col-9 group">
                   <label for="dadPhoneNumberText">Your Dad's <br>Phone Number</label>  
-                </div>
-                <div class="col-8">
                   <input type="tel" class="form-control"  id="dadPhoneNumberText" placeholder="Valid phone number">
-                  <p class="error">Enter valid phone number</p>  
+                </div>
+                <div class="thumb-up col-3">
+                  <p class="error">Enter valid phone number</p>
+                  <img src="img/thumb-up.png" alt="Thumb up">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-4">
+              <div class="row field">
+                <div class="row col-9  group">
                   <label for="dadEmailAddress">Your Dad's <br> E-Mail Address</label>  
+                  <input type="email" class="form-control" id="dadEmailAddress" placeholder="Eg: username@domain.com">  
                 </div>
-                <div class="col-8">
-                  <input type="email" class="form-control" id="dadEmailAddress" placeholder="Eg: username@domain.com">
-                  <p class="error">Enter valid email address</p>  
+                <div class="thumb-up col-3">
+                  <p class="error">Enter valid email address</p>
+                  <img src="img/thumb-up.png" alt="Thumb up">
                 </div>
               </div>
-              <div class="checkbox-style">
-                <input type="checkbox" id="dadCareerGuideCheckbox">
-                <label for="dadCareerGuideCheckbox"><span></span>My Dad is my career guide</label>
+              <div class="field">
+                <div class="col-9 checkbox-style">
+                  <input type="checkbox" id="dadCareerGuideCheckbox">
+                  <label for="dadCareerGuideCheckbox"><span></span>My Dad is my career guide</label>  
+                </div>
+                <div class="col-3"></div>
+              </div>
+          </div>
+          <div class="parents-details">
+            <div class="row field">
+              <div class="row col-9 group">
+                <label for="momNameText">Your Mom's <br>Name</label> 
+                <input type="text" class="form-control" id="momNameText"  placeholder="Mom's name">  
+              </div>
+              <div class="thumb-up col-3">
+                <img src="img/thumb-up.png" alt="Thumb up">
               </div>
             </div>
-          </div>
-          <div class="row parents-details">
-            <div class="col-9">
-              <div class="row">
-                <div class="col-4">
-                  <label for="momNameText">Your Mom's <br>Name</label>  
-                </div>
-                <div class="col-8">
-                  <input type="text" class="form-control" id="momNameText"  placeholder="Mom's name">  
-                </div>
+            <div class="row field">
+              <div class="row col-9 group">
+                <label for="momPhoneNumberText">Your Mom's <br>Phone Number</label>  
+                <input type="tel" class="form-control"  id="momPhoneNumberText" placeholder="Valid phone number">
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <label for="momPhoneNumberText">Your Mom's <br>Phone Number</label>  
-                </div>
-                <div class="col-8">
-                  <input type="tel" class="form-control"  id="momPhoneNumberText" placeholder="Valid phone number">
-                  <p class="error">Enter valid phone number</p>  
-                </div>
+              <div class="thumb-up col-3">
+                <p class="error">Enter valid phone number</p>  
+                <img src="img/thumb-up.png" alt="Thumb up">
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <label for="momEmailAddress">Your Mom's <br> E-Mail Address</label>  
-                </div>
-                <div class="col-8">
-                  <input type="email" class="form-control" id="momEmailAddress" placeholder="Eg: username@domain.com">
-                  <p class="error">Enter valid email address</p>  
-                </div>
+            </div>
+            <div class="row field">
+              <div class="row col-9 group">
+                <label for="momEmailAddress">Your Mom's <br> E-Mail Address</label>  
+                <input type="email" class="form-control" id="momEmailAddress" placeholder="Eg: username@domain.com">
               </div>
-              <div class="checkbox-style">
+              <div class="thumb-up col-3">
+                <p class="error">Enter valid email address</p>  
+                <img src="img/thumb-up.png" alt="Thumb up">
+              </div>
+            </div>
+            <div class="field">
+              <div class="col-9 checkbox-style">
                 <input type="checkbox" id="momCareerGuideCheckbox">
                 <label for="momCareerGuideCheckbox"><span></span>My Mom is my career guide</label>
               </div>
             </div>
           </div>
-          <div class="row parents-details">
-            <div class="col-9">
-              <h3>Someone else helping you make your creer choices?</h3>
-              <div class="row">
-                <div class="col-4">
-                  <label for="guardianNameText">Guardian's <br>Name</label>  
-                </div>
-                <div class="col-8">
-                  <input type="text" class="form-control" id="guardianNameText" placeholder="Guardian's name">  
-                </div>
+
+          <div class="parents-details">
+            <h3>Someone else helping you make your creer choices?</h3>
+            <div class="row field">
+              <div class="row col-9 group">
+                <label for="guardianNameText">Guardian's <br>Name</label>  
+                <input type="text" class="form-control" id="guardianNameText" placeholder="Guardian's name">  
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <label for="guardianPhoneNumberText">Your Guardian's <br>Phone Number</label>  
-                </div>
-                <div class="col-8">
-                  <input type="tel" class="form-control"  id="guardianPhoneNumberText" placeholder="Valid phone number">
-                  <p class="error">Enter valid phone number</p>  
-                </div>
+              <div class="thumb-up col-3">
+                <img src="img/thumb-up.png" alt="Thumb up">
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <label for="guardianEmailAddress">Your Guardian's <br> E-Mail Address</label>  
-                </div>
-                <div class="col-8">
-                  <input type="email" class="form-control" id="guardianEmailAddress" placeholder="Eg: username@domain.com">
-                  <p class="error">Enter valid email address</p>  
-                </div>
+            </div>
+            <div class="row field">
+              <div class="row col-9 group">
+                <label for="guardianPhoneNumberText">Your Guardian's <br>Phone Number</label>  
+                <input type="tel" class="form-control"  id="guardianPhoneNumberText" placeholder="Valid phone number">
+              </div>
+              <div class="thumb-up col-3">
+                <p class="error">Enter valid phone number</p>  
+                <img src="img/thumb-up.png" alt="Thumb up">
+              </div>
+            </div>
+            <div class="row field">
+              <div class="row col-9 group">
+                <label for="guardianEmailAddress">Your Guardian's <br> E-Mail Address</label>  
+                <input type="email" class="form-control" id="guardianEmailAddress" placeholder="Eg: username@domain.com">
+              </div>
+              <div class="thumb-up col-3">
+                <p class="error">Enter valid email address</p>
+                <img src="img/thumb-up.png" alt="Thumb up">
               </div>
             </div>
           </div>

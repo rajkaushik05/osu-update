@@ -74,42 +74,50 @@
           </div>
         </div>
         <div class="fields">
-          <div class="padding select-options field">
-            <p class="label-text">What did you like about the class room session? <span class="star">*</span></p>
-            <div class="checkbox-style" id="didYouLikeClassRoom">
-              <input type="checkbox" name="classRoomSession" id="classroomSession_1">
-              <label for="classroomSession_1"><span></span>Fun and playful environment</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_2">
-              <label for="classroomSession_2"><span></span>I was able to get all the information I needed</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_3">
-              <label for="classroomSession_3"><span></span>Sessions were not too long yet had all the information</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_4">
-              <label for="classroomSession_4"><span></span>I have a very clear idea of what my career path is</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_5">
-              <label for="classroomSession_5"><span></span>The videos were excellent</label>
-              <input type="checkbox" name="classRoomSession" id="classroomSession_6">
-              <label for="classroomSession_6"><span></span>None. I did’t really like the session.</label>
+          <div class="row select-options field">
+            <div class="col-9">
+              <p class="label-text">What did you like about the class room session? <span class="star">*</span></p>
+              <div class="checkbox-style" id="didYouLikeClassRoom">
+                <input type="checkbox" name="classRoomSession" id="classroomSession_1">
+                <label for="classroomSession_1"><span></span>Fun and playful environment</label>
+                <input type="checkbox" name="classRoomSession" id="classroomSession_2">
+                <label for="classroomSession_2"><span></span>I was able to get all the information I needed</label>
+                <input type="checkbox" name="classRoomSession" id="classroomSession_3">
+                <label for="classroomSession_3"><span></span>Sessions were not too long yet had all the information</label>
+                <input type="checkbox" name="classRoomSession" id="classroomSession_4">
+                <label for="classroomSession_4"><span></span>I have a very clear idea of what my career path is</label>
+                <input type="checkbox" name="classRoomSession" id="classroomSession_5">
+                <label for="classroomSession_5"><span></span>The videos were excellent</label>
+                <input type="checkbox" name="classRoomSession" id="classroomSession_6">
+                <label for="classroomSession_6"><span></span>None. I did’t really like the session.</label>
+              </div>
             </div>
-            <p class="error">Please select options</p>
+            <div class="thumb-up col-3">
+              <p class="error">Please select options</p>
+              <img src="img/thumb-up.png" alt="Thumb up">
+            </div>
           </div>
 
-          <div class="padding field" id="notLikeAboutSession">
+          <div class="row field" id="notLikeAboutSession">
             <div class="col-9">
               <label for="">Sad to hear that! What did you NOT like about the session? </label>
               <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
             </div>
           </div>
 
-          <div class="padding field" id="awareOfTheCarreer">
+          <div class="row field select-options">
             <div class="col-9">
               <p class="label-text">Are you aware of the careers impacted by subject choices? <span class="star">*</span></p>
-              <div class="radio-style">
+              <div class="radio-style" id="awareOfTheCarreer">
                 <input type="radio" name="careerImpactBySubject" id="careerImpactBySubject_1">
                 <label for="careerImpactBySubject_1"><span></span>Yes</label>
                 <input type="radio" name="careerImpactBySubject" id="careerImpactBySubject_2">
                 <label for="careerImpactBySubject_2"><span></span>No</label>
               </div>
+            </div>
+            <div class="thumb-up col-3">
               <p class="error">Please select options</p>
+              <img src="img/thumb-up.png" alt="Thumb up">
             </div>
           </div>
           
@@ -117,6 +125,9 @@
             <div class="col-9">
               <label for="">Any other comments for us?</label>
               <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>  
+            </div>
+            <div class="thumb-up col-3">
+              <img src="img/thumb-up.png" alt="Thumb up">
             </div>
           </div>
 
