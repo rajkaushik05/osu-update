@@ -374,7 +374,7 @@ select[disabled='disabled']{
     border-radius: 50%;
     border: 5px solid #c3ceda;
     background-color: #ffffff;
-    right: 30px;
+    right: 20px;
     top: -45px;
 }
 
@@ -1022,6 +1022,17 @@ label .edit {
   width: 12px;
   height: 22px;
   background: url('../img/tooltip-arrow.png') center center no-repeat;
+}
+
+.error span{
+  padding-left: 25px;
+  background: url('../img/info.png') left center no-repeat;
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
+  color: #8a9db2;
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
 
