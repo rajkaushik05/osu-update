@@ -135,6 +135,10 @@ $(document).ready(function(){
 	 	if(count-1 == registerFirstForm.length){
 	 		$(this).attr('href', 'register-1.html');
 	 	} else {
+	 		$('body').animate(
+	 		{
+	 			scrollTop: 0
+	 		}, 600);
 	 		return false;
 	 	}
 	});
@@ -398,9 +402,40 @@ $('#secondStepRegistrationBtn').click(function(){
  	if(count-1 === 2){
  		
  	} else {
+ 		$('body').animate({
+ 			scrollTop: 0
+ 		},600);
  		return false;
  	}
 });
+	
+	/* parents section data show in gurdian section */
+$('#dadCareerGuideCheckbox').change(function(){
+	if($(this).is(':checked')){
+		var dadNameText = $('#dadNameText').val();
+		var dadPhoneNumberText = $('#dadPhoneNumberText').val();
+		var dadEmailAddress = $('#dadEmailAddress').val();
+		$('#guardianNameText').val(dadNameText);
+		$('#guardianPhoneNumberText').val(dadPhoneNumberText);
+		$('#guardianEmailAddress').val(dadEmailAddress);
+		$('#momCareerGuideCheckbox').attr('checked', false);
+	}
+});
+
+
+$('#momCareerGuideCheckbox').change(function(){
+	if($(this).is(':checked')){
+		var momNameText = $('#momNameText').val();
+		var momPhoneNumberText = $('#momPhoneNumberText').val();
+		var momEmailAddress = $('#momEmailAddress').val();
+		$('#guardianNameText').val(momNameText);
+		$('#guardianPhoneNumberText').val(momPhoneNumberText);
+		$('#guardianEmailAddress').val(momEmailAddress);
+		$('#dadCareerGuideCheckbox').attr('checked', false);
+	}
+});
+
+
 
 
 /*--------------Register Form page-3 form validation ------------------------------------- */
@@ -451,6 +486,9 @@ $('#secondStepRegistrationBtn').click(function(){
 	 	if(count-1 == registerFirstForm.length){
 	 		
 	 	} else {
+	 		$('body').animate({
+	 			scrollTop: 0
+	 		},600);
 	 		return false;
 	 	}
 	});
@@ -635,6 +673,9 @@ $('#secondStepRegistrationBtn').click(function(){
 		if(finalStatus === 99){
 			
 		} else {
+			$('body').animate({
+				scrollTop: 0
+			},600);
 			return false;
 		}
 	});
