@@ -9,5 +9,9 @@
 		height: 96px;
 		background: url('../img/step-up-small.png') center center no-repeat;
 	}
+
+	.error span{
+		display: none;
+	}
 	
 }
