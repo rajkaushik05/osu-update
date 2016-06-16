@@ -1269,7 +1269,8 @@ label .edit {
   cursor: pointer;
 }
 
-.anchor-style li.active {
+.anchor-style li.active,
+.anchor-style li:hover {
   background: rgb(240, 245, 249) url('../img/anchor-active-bg.png') top right no-repeat;
 }
 
@@ -1293,7 +1294,8 @@ label .edit {
   color: rgb(65, 77, 91);
 }
 
-.anchor-style li.active .name {
+.anchor-style li.active .name,
+.anchor-style li:hover .name {
   color: #01a4e7;
 }
 
@@ -1318,7 +1320,8 @@ label .edit {
   background: url('../img/active.png') center center no-repeat;
 }
 
-.anchor-style li.active span.active {
+.anchor-style li.active span.active,
+.anchor-style li:hover span.active {
   background: url('../img/active-active.png') center center no-repeat; 
 }
 
@@ -1331,7 +1334,8 @@ label .edit {
   background: url('../img/visualizer.png') center center no-repeat; 
 }
 
-.anchor-style li.active span.visualizer {
+.anchor-style li.active span.visualizer,
+.anchor-style li:hover span.visualizer {
   background: url('../img/visualizer-active.png') center center no-repeat; 
 }
 
@@ -1344,7 +1348,8 @@ label .edit {
   background: url('../img/people-person.png') center center no-repeat; 
 }
 
-.anchor-style li.active span.people-person {
+.anchor-style li.active span.people-person,
+.anchor-style li:hover span.people-person {
   background: url('../img/people-person-active.png') center center no-repeat; 
 }
 
@@ -1357,7 +1362,8 @@ label .edit {
   background: url('../img/reader.png') center center no-repeat; 
 }
 
-.anchor-style li.active span.reader {
+.anchor-style li.active span.reader,
+.anchor-style li:hover span.reader {
   background: url('../img/reader-active.png') center center no-repeat; 
 }
 
@@ -1370,7 +1376,8 @@ label .edit {
   background: url('../img/speaker.png') center center no-repeat; 
 }
 
-.anchor-style li.active span.speaker {
+.anchor-style li.active span.speaker,
+.anchor-style li:hover span.speaker {
   background: url('../img/speaker-active.png') center center no-repeat; 
 }
 
