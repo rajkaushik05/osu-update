@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Feedback | osu</title>
+    <title>Compass | osu</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16,40 +16,27 @@
   </head>
   <body>
     <div class="container gray-bg" id="firstStepFeedback">
-      <form action="feedback-1.html">
+      <form action="compass-1.html">
         <header>
-          <div class="logo">
-            <img src="img/logo.png" alt="osu logo">
+          <div class="row logo">
+            <div class="col-9">
+              <img src="img/logo.png" alt="osu logo">  
+              <img src="img/compass.png" alt="compass logo" class="compass">  
+            </div>
           </div>
           <div class="progress-bar-style row">
             <div class="col-9">
-              <ul class="progress-bar row">
-                <!-- Need to toggle classes (progress-started, progress-completed) -->
-                <li class="progress-started" id="firstStepProgressReg">
-                  <span class="circle start"></span>
-                  <span class="circle"></span>
-                  <span class="progress" style="width: 100%"></span>
-                </li>
-                <li class="">
-                  <span class="circle"></span>
-                  <span class="progress"></span>
-                </li>
-                <li class="">
-                  <span class="circle"></span>
-                  <span class="progress"></span>
-                </li>
-              </ul>
+                <h2>Tell us about yourself</h2>
             </div>
             <div class="col-3">
               <span class="step-up"></span>
             </div>
           </div>
-          <div class="star-progress">
+          <!-- <div class="star-progress">
             <div class="col-9 row">
               <h2>Tell us about yourself</h2>
-              <span class="star-img" id="firstStepStarReg"><span class="update" style="width:100%"></span></span>
             </div>
-          </div>
+          </div> -->
         </header>
         <div class="fields">
           <div class="row instruction">
@@ -149,8 +136,27 @@
             </div>
           </div>
           <p class="pref-career">65% of student chose Doctor as their preferred career.</p>
+          <div class="row field class-score">
+            <div class="col-4">
+              <label for="">Class X Score / CGPA (in %)</label>
+              <div class="edit-field">
+                <input type="text" class="form-control" id="" value="78%" disabled="disabled">
+                <span class="edit"></span>
+              </div>
+            </div>
+            <div class="col-4">
+              <label for="">Class XII Score / CGPA (in %)</label>
+              <div class="edit-field">
+                <input type="text" class="form-control" id="" value="N.A" disabled="disabled">
+                <span class="edit"></span>
+              </div>
+            </div>
+            <div class="thumb-up col-3">
+              <img src="img/thumb-up.png" alt="Thumb up">
+            </div>
+          </div>
           <div class="action">  
-            <button class="btn btn-primary" id="firstStepFeedbackBtn">Continue</button>
+            <button class="btn btn-primary" id="firstStepCompassBtn">Continue</button>
           </div>
         </div>
       </form>

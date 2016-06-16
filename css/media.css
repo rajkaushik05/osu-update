@@ -13,5 +13,36 @@
 	.error span{
 		display: none;
 	}
-	
+}
+
+@media only screen and (min-width: 768px) {
+  .compass-banner {
+    margin: 76px 15px 45px;
+    width: 75%;
+  }
+
+  .anchor-wrap-content .anchor-text {
+    margin: 68px 0 25px;
+  }
+
+  .anchor-wrap-content .anchor-text p {
+      width: 80%;
+  }
+  
+  .anchor-wrap-content .instruction {
+  	margin: 68px 0 40px;  
+    width: 82%;
+  }
+
+  .compass-complete .instruction-msg {
+    width: 72%;
+    word-break: break-all;
+  }
+}
+
+
+@media only screen and (max-width: 730px) {
+  .anchor-wrap-content .action p {
+    width: 100%;
+  }
 }

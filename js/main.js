@@ -1,7 +1,6 @@
 "use strict"
 
 $(document).ready(function(){
-
 	/* input type number & Email Validator validate */
 
 	$("input[type='tel']").blur(function(){

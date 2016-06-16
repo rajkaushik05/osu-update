@@ -1,0 +1,167 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Compass | osu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  </head>
+  <body>
+    <div class="container anchor-wrap-content gray-bg" id="firstStepFeedback">
+      <form action="compass-3.html">
+        <header>
+          <div class="row logo">
+            <div class="col-9">
+              <img src="img/logo.png" alt="osu logo">  
+              <img src="img/compass.png" alt="compass logo" class="compass">  
+            </div>
+          </div>
+          <div class="progress-bar-style row">
+            <div class="col-9">
+                <h2>4. The Drill</h2>
+            </div>
+            <div class="col-3">
+              <span class="step-up"></span>
+            </div>
+          </div>
+          <!-- <div class="star-progress">
+            <div class="col-9 row">
+              <h2>Tell us about yourself</h2>
+            </div>
+          </div> -->
+        </header>
+        <div class="instruction  anchor-text">
+          <p>Tick the ones under each "Anchor" that you think you have done. Drag and drop them according to the ranks. Top ranked goes on top.</p>
+        </div>
+        <div class="anchor-slider ">
+          <ul class="bxslider anchor-style">
+            <!-- repeatable item -->
+              <li class="done">
+                  <span class="icon active"></span>
+                  <span class="name">Active</span>
+                  <span class="yes"></span>
+              </li>
+              <!-- repeatable item -->
+              <li class="ignore">
+                  <span class="icon visualizer"></span>
+                  <span class="name">Visualizer</span>
+                  <span class="ignore"></span>
+              </li>
+              <!-- repeatable item -->
+              <li class="active">
+                  <span class="icon people-person"></span>
+                  <span class="name">People Person</span>
+                  <span class="yes"></span>
+              </li>
+              <!-- repeatable item -->
+              <li>
+                  <span class="icon reader"></span>
+                  <span class="name">Reader</span>
+                  <span class="yes"></span>
+              </li>
+              <!-- repeatable item -->
+              <li class="active checked">
+                  <span class="icon speaker"></span>
+                  <span class="name">Speaker</span>
+                  <span class="yes"></span>
+              </li>
+              <!-- repeatable item -->
+              <li>
+                  <span class="icon active"></span>
+                  <span class="name">Active</span>
+                  <span class="yes"></span>
+              </li>
+              <!-- repeatable item -->
+              <li>
+                  <span class="icon visualizer"></span>
+                  <span class="name">Visualizer</span>
+                  <span class="yes"></span>
+              </li>
+          </ul>      
+        </div> 
+        <div class="anchor-detail-section">
+          <div class="padding">
+            <h2>Anchor 1 <span>Reader</span></h2>
+            <p>Implies that you are on your feet for an extended period of time and are ok with that!</p>
+          </div>
+          <ul id="anchorDetails" class="anchor-details checkbox-style-1">
+            <li class="active">
+              <input type="checkbox" id="athleticsCheck" checked="checked">
+              <label for="athleticsCheck"><span class="icon"></span><span class="count">1</span>Athletics</label>
+            </li>
+            <li class="active">
+              <input type="checkbox" id="badmintonCheck" checked="checked">
+              <label for="badmintonCheck"><span class="icon"></span><span class="count">2</span>Badminton</label>
+            </li>
+            <li class="active">
+              <input type="checkbox" id="basketballCheck" checked="checked">
+              <label for="basketballCheck"><span class="icon"></span><span class="count">3</span>Basketball</label>
+            </li>
+            <li class="active">
+              <input type="checkbox" id="boxingCheck" checked="checked">
+              <label for="boxingCheck"><span class="icon"></span><span class="count">4</span>Boxing</label>
+            </li>
+            <li class="active">
+              <input type="checkbox" id="cricketCheck" checked="checked">
+              <label for="cricketCheck"><span class="icon"></span><span class="count">5</span>Cricket</label>
+            </li>
+            <li class="active">
+              <input type="checkbox" id="cyclingCheck" checked="checked">
+              <label for="cyclingCheck"><span class="icon"></span><span class="count">6</span>Cycling</label>
+            </li>
+            <li class="active">
+              <input type="checkbox" id="exerciseCheck" checked="checked">
+              <label for="exerciseCheck"><span class="icon"></span><span class="count">7</span>Exercise</label>
+            </li>
+            <li class="active">
+              <input type="checkbox" id="footballCheck" checked="checked">
+              <label for="footballCheck"><span class="icon"></span><span class="count">8</span>Football</label>
+            </li>
+            <li class="">
+              <input type="checkbox" id="golfCheck" >
+              <label for="golfCheck"><span class="icon"></span><span class="count">9</span>Golf</label>
+            </li>
+            <li>
+              <input type="checkbox" id="gymnasticsCheck">
+              <label for="gymnasticsCheck"><span class="icon"></span><span class="count">10</span>Gymnastics</label>
+            </li>
+            <li>
+              <input type="checkbox" id="horseridingCheck">
+              <label for="horseridingCheck"><span class="icon"></span><span class="count">10</span>Horseriding</label>
+            </li>
+          </ul>
+        </div>
+        <div class="action">  
+          <button class="btn btn-back" id=""><span class="icon"></span>Back to Active</button>
+          <button class="btn btn-primary" id="thirdStepCompassBtn">Next</button>
+          <p>Next Anchor is <span class="next">Reader</span></p>
+        </div>
+      </form>
+    </div>
+
+    <script src="js/vendor/jquery-1.12.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/vendor/jquery.easy-autocomplete.js"></script>
+    <script src="js/vendor/jquery.bxslider.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      $('.bxslider').bxSlider({
+        minSlides: 3,
+        maxSlides: 5,
+        slideWidth: 168,
+        slideMargin: 10,
+        pager: false
+      });
+    </script>
+    
+  </body>
+</html>
