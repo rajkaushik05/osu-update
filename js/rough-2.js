@@ -1,572 +1,190 @@
-"use strict"
+    /* Anchor collecions */
 
+    var anchorList = {
+        active : [
+            {"class":"activeItem", "type":"Athletics"},
+            {"class":"activeItem","type":"Badminton"},
+            {"class":"activeItem","type":"Basketball"},
+            {"class":"activeItem","type":"Boxing"},
+            {"class":"activeItem","type":"Cricket"},
+            {"class":"activeItem","type":"Cycling"},
+            {"class":"activeItem","type":"Exercise"},
+            {"class":"activeItem","type":"Football"},
+            {"class":"activeItem","type":"Golf"},
+            {"class":"activeItem","type":"Gymnastics"},
+            {"class":"activeItem","type":"Horseriding"}
+        ],
+        Visualizer : [
+            {"class":"visualizerItem", "type":"Animator"},
+            {"class":"visualizerItem", "type":"Caricatures"},
+            {"class":"visualizerItem", "type":"Decoration"},
+            {"class":"visualizerItem", "type":"Doodle"},
+            {"class":"visualizerItem", "type":"Event Management"},
+            {"class":"visualizerItem", "type":"Fashion"},
+            {"class":"visualizerItem", "type":"Graffitti"},
+            {"class":"visualizerItem", "type":"Illustrator"},
+            {"class":"visualizerItem", "type":"Movie/Play Director"}
+        ],
+        PeoplePerson : [
+            {"class":"peopleItem", "type":"Advice"},
+            {"class":"peopleItem", "type":"Elected Representative"},
+            {"class":"peopleItem", "type":"Good Humour"},
+            {"class":"peopleItem", "type":"Mediator"},
+            {"class":"peopleItem", "type":"Organiser"},
+            {"class":"peopleItem", "type":"Teaching"},
+            {"class":"peopleItem", "type":"Social Work"},
+            {"class":"peopleItem", "type":"Team Player"},
+            {"class":"peopleItem", "type":"Volunteer"},
+            {"class":"peopleItem", "type":"Good Listener"},
+            {"class":"peopleItem", "type":"Extrovert"},
+            {"class":"peopleItem", "type":"Connecting with people"},
+            {"class":"peopleItem", "type":"Social"},
+            {"class":"peopleItem", "type":"Psychology of people"},
+            {"class":"peopleItem", "type":"Adaptable"}
+        ],
+        Reader : [
+            {"class":"readerItem", "type":"Fiction"},
+            {"class":"readerItem", "type":"Reasearch"},
+            {"class":"readerItem", "type":"Non-fiction"},
+            {"class":"readerItem", "type":"Magazines"},
+            {"class":"readerItem", "type":"Online Reading"},
+            {"class":"readerItem", "type":"Crosswords"},
+            {"class":"readerItem", "type":"Classics"},
+            {"class":"readerItem", "type":"Personal Development"},
+            {"class":"readerItem", "type":"Encyclopedia"},
+            {"class":"readerItem", "type":"Autobiographics"},
+            {"class":"readerItem", "type":"Science Fiction"},
+            {"class":"readerItem", "type":"Thesaurus"},
+            {"class":"readerItem", "type":"Popular Science"},
+            {"class":"readerItem", "type":"Poetry"},
+            {"class":"readerItem", "type":"Editorials"}
+        ]
+    };
+
+    var activeEvidence = [];
+    for(var i=0; i<anchorList.active.length; i++){
+        var object =  anchorList.active[i];
+        activeEvidence.push(object.type);
+    }
+
+    var visualizerEvidence = [];
+    for(var i=0; i<anchorList.Visualizer.length; i++){
+        var object = anchorList.Visualizer[i];
+        visualizerEvidence.push(object.type);
+    }
+
+    var peoplePersonEvidence = [];
+    for(var i=0; i<anchorList.PeoplePerson.length; i++){
+        var object = anchorList.PeoplePerson[i];
+        peoplePersonEvidence.push(object.type);
+    }
+
+    var readerEvidence = [];
+    for(var i=0; i<anchorList.Reader.length; i++){
+        var object = anchorList.Reader[i];
+        readerEvidence.push(object.type);
+    }
+
+    var sliderAnchor = [
+        {"name":"active", "icon":"active", "text":"Active"},
+        {"name":"visualizer", "icon":"visualizer", "text":"Visualizer"},
+        {"name":"peoplePerson", "icon":"people-person", "text":"People Person"},
+        {"name":"reader", "icon":"reader", "text":"Reader"}
+    ]
+
+    for(var i=0; i<sliderAnchor.length; i++){
+        var el = '<li class="" id="sliderAnchorNumber'+i+'"><span class="icon '+sliderAnchor[i].icon+'"></span><span class="name">' + sliderAnchor[i].text + '</span><span class=""></span></li>'
+        $('#anchorSlider .bxslider').append(el);
+    }
+
+    
+
+    
+    
 $(document).ready(function(){
 
-	/* input type number & Email Validator validate */
-
-	$("input[type='tel']").blur(function(){
-		var el = $(this).val();
-		var strNum = parseInt(el);
-		var numLength = 10;
-		if(typeof strNum === 'number' && el.length === numLength && strNum !== '') {
-			$(this).siblings('p').hide();
-		} else if(el.length !== numLength){
-			$(this).siblings('p').show();
-		}
-	});
-
-	$("input[type='email']").blur(function(){
-		var el = $(this).val();
-		if(validateEmail(el)){
-			$(this).siblings('p').hide();
-		} else{
-			$(this).siblings('p').show();
-		}
-	});
-
-	/*--------------Register Form page-1 form validation ------------------------------------- */
-
-	$('#firstStepRegistration input, #firstStepRegistration select').on('blur change', function(){
-		var yourFullNameText = $('#yourFullNameText');
-		var rollNumberText = $('#rollNumberText');
-		var classSelect = $('#classSelect');
-		var sectionSelect = $('#sectionSelect');
-		var yourSchoolText = $('#yourSchoolText');
-
-		var count = 1;
-		var finalStatus = 0;
-		var ratio = 20;
-
-		
-		if($(this).attr('id') == 'yourFullNameText' && $(this).val() === ''){
-			$(this).siblings('p').show();
-		}
-		var nameVal = yourFullNameText.val();
-		if(typeof nameVal === 'string' && nameVal !== '') {
-			finalStatus += ratio;
-			yourFullNameText.siblings('p').hide();
-			$('#yourFullNameText').parents('.field').find('.thumb-up img').show();
-		} else {
-			$('#yourFullNameText').parents('.field').find('.thumb-up img').hide();
-		}
-		
-		var countField = 0;
-		var rollValue= rollNumberText.val();
-		if(typeof rollValue === 'string' && rollValue != '') {
-			finalStatus  += ratio;
-			countField += 1;
-		}
-		
-		var classVal= classSelect.val();
-		if(typeof classVal === 'string' && classVal !== ''){
-			finalStatus  += ratio;
-			countField += 1;
-		}
-
-		var sectionVal= sectionSelect.val();
-		if(typeof sectionVal === 'string' && sectionVal !== ''){
-			finalStatus  += ratio;
-			countField += 1;
-		}
-
-		if(countField === 3){
-			$('#rollNumberText').parents('.fields-group').find('.thumb-up img').show();
-		} else  {
-			$('#rollNumberText').parents('.fields-group').find('.thumb-up img').hide();
-		}
-
-		var schoolVal = yourSchoolText.val();
-		if($(this).attr('id') == 'yourSchoolText' && $(this).val() === ''){
-			$(this).siblings('p').show();
-		}
-		if(typeof schoolVal === 'string' && schoolVal !== '') {
-			finalStatus += ratio;
-			yourSchoolText.siblings('p').hide();
-			$('#yourSchoolText').parents('.field').find('.thumb-up img').show();
-		} else {
-			$('#yourSchoolText').parents('.field').find('.thumb-up img').hide();
-		}
-
-	 	finalStatus = Math.round(finalStatus);
-	 	if(finalStatus > 0){
-	 		$('#firstStepProgressReg').addClass('progress-started');
-	 	} else {
-	 		$('#firstStepProgressReg').removeClass('progress-started');
-	 	}
-	 	
-	 	$('#firstStepProgressReg .progress').css('width', finalStatus + "%");
-	 	$('#firstStepStarReg .update').css('width', finalStatus + '%');
-	 	
-	});
-
-
-	$('#firstStepRegistrationBtn').click(function(){
-		var yourFullNameText = $('#yourFullNameText');
-		var rollNumberText = $('#rollNumberText');
-		var classSelect = $('#classSelect');
-		var sectionSelect = $('#sectionSelect');
-		var yourSchoolText = $('#yourSchoolText');
-
-		var registerFirstForm = [yourFullNameText, rollNumberText, classSelect, sectionSelect, yourSchoolText];
-		var count = 1;
-		var finalStatus = 0;
-	 	for(var i=0; i<registerFirstForm.length; i++){
-	 		var str = registerFirstForm[i].val();
-	 		if(typeof str === 'string' && str !== '') {
-	 			var ratio = 20;
-	 			var getStatus = ratio * count;
-	 			finalStatus = getStatus;
-	 			count++;
-	 		} else if(str === "" || str === null) {
-	 			registerFirstForm[i].siblings('p').show();
-	 		} 
-	 	}
-	 	if(count-1 == registerFirstForm.length){
-	 		$(this).attr('href', 'register-1.html');
-	 	} else {
-	 		return false;
-	 	}
-	});
-
-	/*subject consider add from auto search field*/
- 	$('#xiConsiderSubjectAdded').on('click', '.close', function(){
- 		$(this).parent().remove();
- 		var list = $('#xiConsiderSubjectAdded li');
- 		if(list.length == 0){
- 			$('#xiConsiderSubjectAdded').parents('.field').find('.thumb-up img').hide();
- 		}
- 	});
-
- 	var subjectConsider = {
-		data: [
-			"Mathematics",
-			"Physics",
-			"Chemistry",
-			"Biology",
-			"Biotechnology",
-			"Engineering Graphics",
-			"Economics",
-			"Political Science",
-			"History",
-			"Geography",
-			"Business Studies",
-			"Accountancy",
-			"Home Science",
-			"Fine Arts",
-			"Agriculture",
-			"Computer Science",
-			"Multimedia and Web Technology",
-			"Sociology",
-			"Psychology",
-			"Philosophy",
-			"Physical Education",
-			"Music and Dance",
-			"Entrepreneurship",
-			"Fashion Studies",
-			"Creative Writing and Translation Studies",
-			"Heritage Crafts",
-			"Graphic Design",
-			"Mass Media Studies",
-			"Legal Studies",
-			"Human Rights and Gender Studies",
-			"National Cadet Crops"
-		],
-		list: {
-			maxNumberOfElements: 8,
-			onChooseEvent: function() {
-				var value = $("#xiSubjectConsiderText").getSelectedItemData();
-				$('#xiConsiderSubjectAdded').append('<li>'+value+' <span class="close"></span></li>');
-				$('#xiConsiderSubjectAdded').parents('.field').find('.thumb-up img').show();
-				$("#xiSubjectConsiderText").val('');
-			},
-			match: {
-				enabled: true
-			}
-		}
-	};
-	$("#xiSubjectConsiderText").easyAutocomplete(subjectConsider);
-
-	/* subject option and related subject list */
-	
-
-	/*Career you are interested in search field*/
-	$('#careersInterestedInAdded').on('click', '.close', function(){
- 		$(this).parent().remove();
- 		var list = $('#careersInterestedInAdded li');
- 		if(list.length == 0){
- 			$('#careersInterestedInAdded').parents('.field').find('.thumb-up img').hide();
- 		}
- 	});
-
- 	var careerConsider = {
-		data:[
-			{"count": "1", "career": "Doctor"},
-			{"count": "2", "career": "Electrical Engineer"},
-			{"count": "3", "career": "Paramilitary"},
-			{"count": "3", "career": "Teacher"},
-			{"count": "3", "career": "Mechanical Engineer"},
-			{"count": "3", "career": "Civil Engineer"},
-			{"count": "3", "career": "Civil Architect"},
-			{"count": "3", "career": "Mechanical"}
-		],
-
-		getValue: "career",
-
-		list: {
-			maxNumberOfElements: 8,
-			onChooseEvent: function() {
-				var value = $("#careersInterestedInText").getSelectedItemData().career;
-				var count = $('#careersInterestedInAdded > li').length +1;
-				$('#careersInterestedInAdded').append('<li class="row"><span class="pull-first"></span><span class="pull-second"></span> <span class="count">' + count + '</span><span class="text">' + value + '</span><span class="close"></span></li>');
-				$('#careersInterestedInAdded').parents('.field').find('.thumb-up img').show();
-				$("#careersInterestedInText").val('');
-			},
-			match :  {
-				enabled: true
-			}
-		}
-	};
-	$("#careersInterestedInText").easyAutocomplete(careerConsider);
-
-	/*soring functionality for career selection listed items*/
-
-	function updateCount(){
-		$('#careersInterestedInAdded > li').each(function(i, el){
-			$(this).find('.count').html(i+1);
-		});	
-	}
-	$('#careersInterestedInAdded').on('click', '.pull-first', function(){
-		var prev = $(this).parent().prev();
-		var item = $(this).parent().detach();
-		prev.before(item);
-		updateCount();
-	});
-	$('#careersInterestedInAdded').on('click', '.pull-second', function(){
-		var next = $(this).parent().next();
-		var item = $(this).parent().detach();
-		next.after(item);
-		updateCount();
-	});
-
-
-/*--------------Register Form page-2 form validation ------------------------------------- */
-function validateEmail(email) {
-	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-}
-
-$('#secondStepRegistration input').on('blur change', function(){
-	var yourPhoneNumberText = $('#yourPhoneNumberText');
-	var yourEmailAddressText = $('#yourEmailAddressText');
-
-	var count = 1;
-	var finalStatus = 0;
-	var ratio = 50;
-	
-
-	var rollValue = yourPhoneNumberText.val();
-	var strNum = parseInt(rollValue);
-	var numLength = 10;
-	if($(this).attr('id') === 'yourPhoneNumberText' && rollValue.length !== numLength) {
-		$(this).siblings('p').show();
-	}
-	if(typeof strNum === 'number' && rollValue.length === numLength && strNum !== '') {
-		finalStatus  += ratio;
-		$(this).siblings('p').hide();
-		$(this).parents('.field').find('.thumb-up img').show();
-	} else if(rollValue.length !== numLength){
-		$(this).parents('.field').find('.thumb-up img').hide();
-	}
-
-	var emailVal = yourEmailAddressText.val();
-	if($(this).attr('id') === 'yourEmailAddressText' && emailVal !== '' && validateEmail(emailVal) === false){
-		$('#yourEmailAddressText').siblings('p').show();
-	}
-	if(validateEmail(emailVal)){
-		finalStatus  += ratio;
-		$('#yourEmailAddressText').siblings('p').hide();
-		$('#yourEmailAddressText').parents('.field').find('.thumb-up img').show();
-	} else{
-		$('#yourEmailAddressText').parents('.field').find('.thumb-up img').hide();
-	}
-
- 	finalStatus = Math.round(finalStatus);
- 	if(finalStatus > 0){
- 		$('#secondStepProgressReg').addClass('progress-started');
- 	} else {
- 		$('#secondStepProgressReg').removeClass('progress-started');
- 	}
- 	
- 	$('#secondStepProgressReg .progress').css('width', finalStatus + "%");
- 	$('#secondStepStarReg .update').css('width', finalStatus + '%');
- 	
-});
-
-
-$('#secondStepRegistrationBtn').click(function(){
-	var yourPhoneNumberText = $('#yourPhoneNumberText');
-	var yourEmailAddressText = $('#yourEmailAddressText');
-
-	var count = 1;
-	var finalStatus = 0;
-	var ratio = 50;
-	
-	var rollValue = yourPhoneNumberText.val();
-	var strNum = parseInt(rollValue);
-	var numLength = 10;
-	if(typeof strNum === 'number' && rollValue.length === numLength && strNum !== '') {
-		$('#yourPhoneNumberText').siblings('p').hide();
-		count++;
-	} else if(rollValue.length !== numLength && rollValue === ''){
-		$('#yourPhoneNumberText').siblings('p').show();
-	}
-
-	var emailVal = yourEmailAddressText.val();
-	if(validateEmail(emailVal)){
-		$('#yourEmailAddressText').siblings('p').hide();
-		count++;
-	} else{
-		$('#yourEmailAddressText').siblings('p').show();
-	}
-
- 	if(count-1 === 2){
- 		
- 	} else {
- 		return false;
- 	}
-});
-
-
-/*--------------Register Form page-3 form validation ------------------------------------- */
-	var agreeToAttend = $("#agreeToAttendProgram input[type='radio']");
-	$("#agreeToAttendProgram input[type='radio']").click(function(){
-		if(agreeToAttend.is(':checked')){
-			var finalStatus = 100;
-			$(this).parents('.field').find('.thumb-up img').show();
-			$(this).siblings('.error').hide();
-		}
-		$('#thirdStepProgressReg').removeClass('progress-started').addClass('progress-completed');
-		$('#thirdStepProgressReg .progress').css('width', finalStatus + "%");
- 		$('#thirdStepStarReg .update').css('width', finalStatus + '%');
-	});
-	
-	$('#thirdStepRegistrationBtn').click(function(){
-		if(agreeToAttend.is(':checked')){
-			return false;
-		} else{
-			$('#agreeToAttendProgram .error').show();
-			return false;
-		}
-	});
-
-/*--------------Feedback page-1 form validation ------------------------------------- */
-	$('#firstStepFeedbackBtn').click(function(){
-		var yourFullNameTextEdit = $('#yourFullNameTextEdit');
-		var rollNumberTextEdit = $('#rollNumberTextEdit');
-		var classSelectEdit = $('#classSelectEdit');
-		var sectionSelectEdit = $('#sectionSelectEdit');
-		var yourSchoolTextEdit = $('#yourSchoolTextEdit');
-
-		var registerFirstForm = [yourFullNameTextEdit, rollNumberTextEdit, classSelectEdit, sectionSelectEdit, yourSchoolTextEdit];
-		var count = 1;
-		var finalStatus = 0;
-	 	for(var i=0; i<registerFirstForm.length; i++){
-	 		var str = registerFirstForm[i].val();
-	 		if(typeof str === 'string' && str !== '') {
-	 			var ratio = 20;
-	 			var getStatus = ratio * count;
-	 			finalStatus = getStatus;
-	 			count++;
-	 		} else if(str === "" || str === null) {
-	 			registerFirstForm[i].siblings('p').show();
-	 		} 
-	 	}
-	 	if(count-1 == registerFirstForm.length){
-	 		
-	 	} else {
-	 		return false;
-	 	}
-	});
-
-	$('#firstStepFeedback input, #firstStepFeedback select').on('blur change', function(){
-		var yourFullNameTextEdit = $('#yourFullNameTextEdit');
-		var rollNumberTextEdit = $('#rollNumberTextEdit');
-		var classSelectEdit = $('#classSelectEdit');
-		var sectionSelectEdit = $('#sectionSelectEdit');
-		var yourSchoolTextEdit = $('#yourSchoolTextEdit');
-
-		var count = 1;
-		var finalStatus = 0;
-		var ratio = 20;
-
-		
-		if($(this).attr('id') == 'yourFullNameTextEdit' && $(this).val() === ''){
-			$(this).siblings('p').show();
-		}
-		var nameVal = yourFullNameTextEdit.val();
-		if(typeof nameVal === 'string' && nameVal !== '') {
-			finalStatus += ratio;
-			yourFullNameTextEdit.siblings('p').hide();
-			$('#yourFullNameTextEdit').parents('.field').find('.thumb-up img').show();
-		} else {
-			$('#yourFullNameTextEdit').parents('.field').find('.thumb-up img').hide();
-		}
-		
-		var countField = 0;
-		var rollValue= rollNumberTextEdit.val();
-		if(typeof rollValue === 'string' && rollValue != '') {
-			finalStatus  += ratio;
-			countField += 1;
-		}
-		
-		var classVal= classSelectEdit.val();
-		if(typeof classVal === 'string' && classVal !== ''){
-			finalStatus  += ratio;
-			countField += 1;
-		}
-
-		var sectionVal= sectionSelectEdit.val();
-		if(typeof sectionVal === 'string' && sectionVal !== ''){
-			finalStatus  += ratio;
-			countField += 1;
-		}
-
-		if(countField === 3){
-			$('#rollNumberTextEdit').parents('.fields-group').find('.thumb-up img').show();
-		} else  {
-			$('#rollNumberTextEdit').parents('.fields-group').find('.thumb-up img').hide();
-		}
-
-		var schoolVal = yourSchoolTextEdit.val();
-		if($(this).attr('id') == 'yourSchoolTextEdit' && $(this).val() === ''){
-			$(this).siblings('p').show();
-		}
-		if(typeof schoolVal === 'string' && schoolVal !== '') {
-			finalStatus += ratio;
-			yourSchoolTextEdit.siblings('p').hide();
-			$('#yourSchoolTextEdit').parents('.field').find('.thumb-up img').show();
-		} else {
-			$('#yourSchoolTextEdit').parents('.field').find('.thumb-up img').hide();
-		}
-
-	 	finalStatus = Math.round(finalStatus);
-	 	if(finalStatus > 0){
-	 		$('#firstStepProgressReg').addClass('progress-started');
-	 	} else {
-	 		$('#firstStepProgressReg').removeClass('progress-started');
-	 	}
-	 	
-	 	$('#firstStepProgressReg .progress').css('width', finalStatus + "%");
-	 	$('#firstStepStarReg .update').css('width', finalStatus + '%');
-	});
-
-	/* click on edit button fields enable */
-
-	$('.edit-field .edit').click(function(){
-		$(this).parents('.edit-field').find('select, input').attr('disabled', false);
-		if($(this).siblings('select').length > 0){
-			$(this).hide();
-		}
-	});
-
-	$('#careersInterestedInLabel .edit').click(function(){
-		$(this).parents('.field').find('input').attr('disabled', false);
-		$('#careersInterestedInAdded').removeClass('disabled');
-	});
-
-	/* disabled button default */
-	$('#careersInterestedInAdded span').click(function(){
-		if($('#careersInterestedInAdded').hasClass('disabled')){
-			return false	
-		}
-		
-	});
-
-	/* Code for Star Rating */
-	$(".star-rating-radio input[type='radio']").on('change', function(){
-		$(this).parent().prevAll("label").addClass('active');
-		$(this).parent().addClass('active');
-		$(this).parent().nextAll("label").removeClass('active');
-	});
-
-	/*--------------Feedback page-2 form validation ------------------------------------- */
-	
-	$('#secondStepFeedback input, #secondStepFeedback textarea').on('change blur', function(){
-		secondStepFeedbackFormFields();
-	});
-
-	function secondStepFeedbackFormFields(){
-		var starRating = $('#secondStepFeedback .star-rating-radio input[type="radio"]');
-		var didYouLikeClassRoom = $('#didYouLikeClassRoom input[type="checkbox"]');
-		var awareOfTheCarreer = $('#awareOfTheCarreer input[type="radio"]');
-
-
-		var finalStatus = 0;
-		if(starRating.is(':checked')) {
-			finalStatus += 33;		
-			$('.star-rating-radio').siblings('.error').hide();
-		} 
-
-		if(didYouLikeClassRoom.is(':checked')){
-			finalStatus += 33;	
-			$('#didYouLikeClassRoom').siblings('.error').hide();
-		}
-
-		if(awareOfTheCarreer.is(':checked')){
-			finalStatus += 33;	
-			$('#awareOfTheCarreer').find('.error').hide();
-		}
-
-		$('#secondStepProgressReg .progress').css('width', finalStatus + "%");
-	 	$('#secondStepStarReg .update').css('width', finalStatus + '%');
-	};
-
-	/* in didYouLikeClassRoom field None. I did’t really like the session. selected textbox show hide*/
-	$('#classroomSession_6').change(function(){
-		if($(this).is(':checked')) {
-			$('#notLikeAboutSession').slideDown();	
-		} else {
-			$('#notLikeAboutSession').slideUp();
-		}
-	});
-
-
-	$('#secondStepFeedbackBtn').click(function(){
-		var starRating = $('#secondStepFeedback .star-rating-radio input[type="radio"]');
-		var didYouLikeClassRoom = $('#didYouLikeClassRoom input[type="checkbox"]');
-		var awareOfTheCarreer = $('#awareOfTheCarreer input[type="radio"]');
-
-
-		var finalStatus = 0;
-		if(starRating.is(':checked')) {
-			finalStatus += 33;		
-		} else {
-			$('.star-rating-radio').siblings('.error').show();
-		}
-
-		if(didYouLikeClassRoom.is(':checked')){
-			finalStatus += 33;	
-		} else {
-			$('#didYouLikeClassRoom').siblings('.error').show();	
-		}
-
-		if(awareOfTheCarreer.is(':checked')){
-			finalStatus += 33;	
-		} else {
-			$('#awareOfTheCarreer').find('.error').show();
-		}
-		if(finalStatus === 99){
-			
-		} else {
-			return false
-		}
-	});
-
-
-});
-
-
-
-
-
-
+    
+    /* code for compass page */
+
+    $('.anchor-list li').click(function(){
+        window.location.href = "compass-3.html";
+    });
+
+    /*Active item position get*/
+
+    $('.bxslider li').click(function(){
+        $('.bxslider li').removeClass('active');
+        $(this).addClass('active');
+        var x = $(this).offset().left;
+        x += 57;
+        $('#anchorSlider .anchor-arrow').css('left', x + 'px');
+    });
+
+    var activeEvidenceChecked = [];
+    var visualizerEvidenceChecked = [];
+    var peoplePersonEvidenceChecked = [];
+    var readerEvidenceChecked = [];
+    $('#anchorDetails').on("change", "input[type='checkbox']",  function(){
+        if($(this).is(':checked') && $(this).parents('li').attr('class') === anchorList.active[0].class){
+            var elIndex = ($(this).parents('li').index());
+            activeEvidenceChecked.push(elIndex);
+            activeEvidenceChecked.sort();
+            console.log(activeEvidenceChecked);
+            $(this).parents('li').addClass('active');
+        }
+        else if ($(this).is(':checked') && $(this).parents('li').attr('class') === anchorList.Visualizer[0].class){
+            var elIndex = ($(this).parents('li').index());
+            visualizerEvidenceChecked.push(elIndex);
+            visualizerEvidenceChecked.sort();
+            $(this).parents('li').addClass('active');
+        }
+        else if ($(this).is(':checked') && $(this).parents('li').attr('class') === anchorList.PeoplePerson[0].class){
+            var elIndex = ($(this).parents('li').index());
+            peoplePersonEvidenceChecked.push(elIndex);
+            peoplePersonEvidenceChecked.sort();
+            $(this).parents('li').addClass('active');
+        }
+        else if ($(this).is(':checked') && $(this).parents('li').attr('class') === anchorList.Reader[0].class){
+            var elIndex = ($(this).parents('li').index());
+            readerEvidenceChecked.push(elIndex);
+            readerEvidenceChecked.sort();
+            $(this).parents('li').addClass('active');
+        } else {
+            $(this).parents('li').removeClass('active');
+        }
+    });
+
+    $('#anchorSlider li').click(function(){
+        if($(this).attr('id') === 'sliderAnchorNumber0') {
+            showBehaviorInBlock(anchorList.active[0].class, activeEvidence, activeEvidenceChecked);
+        }
+        if($(this).attr('id') === 'sliderAnchorNumber1') {
+            showBehaviorInBlock(anchorList.Visualizer[0].class, visualizerEvidence, visualizerEvidenceChecked);
+        }
+        if($(this).attr('id') === 'sliderAnchorNumber2') {
+            showBehaviorInBlock(anchorList.PeoplePerson[0].class, peoplePersonEvidence, peoplePersonEvidenceChecked);
+        }
+        if($(this).attr('id') === 'sliderAnchorNumber3') {
+            showBehaviorInBlock(anchorList.Reader[0].class, readerEvidence, readerEvidenceChecked);
+        }
+    });
+
+    function showBehaviorInBlock(value, arry, evidenceName){
+        $('#anchorDetails').empty();
+        for(var i=0; i<arry.length; i++){
+                var count = i+1;
+                var idcount = value+i;      
+            if(evidenceName[i] == -1){
+                var els = '<li class="active '+value+'"><input type="checkbox" id="'+idcount+'" checked="checked"><label for="'+idcount+'"><span class="icon"></span><span class="count">' + count + '</span>'+ arry[i] +'</label></li>';
+
+            }
+            else{
+                var els = '<li class="'+value+'"><input type="checkbox" id="'+idcount+'" ><label for="'+idcount+'"><span class="icon"></span><span class="count">' + count + '</span>'+ arry[i] +'</label></li>';               
+            }
+            $('#anchorDetails').append(els);
+        }
+    }
+
+    showBehaviorInBlock(anchorList.active[0].class, activeEvidence, activeEvidenceChecked);
+
+})
