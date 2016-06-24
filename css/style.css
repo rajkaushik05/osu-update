@@ -1098,13 +1098,39 @@ label .edit {
 }
 
 .compass-banner {
-  background: #000000 url('../img/compass-banner.png') top center/ 100% 100% no-repeat;
+  background-color: #000000;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   margin: 35px 15px 45px;
-  padding: 125px 20px 2px;
-  min-height: 250px;
+  min-height: 260px;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.compass-banner .banner-content {
+  padding: 125px 20px 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.compass-banner img {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.compass-banner:before {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .3);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .compass-banner p{
@@ -1159,6 +1185,7 @@ label .edit {
 
 .add-personality ul{
   list-style-type: none;
+  padding-left: 40px;
   position: relative;
 }
 
@@ -1270,7 +1297,7 @@ label .edit {
 }
 
 .anchor-style li.active,
-.anchor-style li:hover {
+.anchor-list li:hover {
   background: rgb(240, 245, 249) url('../img/anchor-active-bg.png') top right no-repeat;
 }
 
@@ -1295,7 +1322,7 @@ label .edit {
 }
 
 .anchor-style li.active .name,
-.anchor-style li:hover .name {
+.anchor-list li:hover .name {
   color: #01a4e7;
 }
 
@@ -1321,7 +1348,7 @@ label .edit {
 }
 
 .anchor-style li.active span.active,
-.anchor-style li:hover span.active {
+.anchor-list li:hover span.active {
   background: url('../img/active-active.png') center center no-repeat; 
 }
 
@@ -1335,7 +1362,7 @@ label .edit {
 }
 
 .anchor-style li.active span.visualizer,
-.anchor-style li:hover span.visualizer {
+.anchor-list li:hover span.visualizer {
   background: url('../img/visualizer-active.png') center center no-repeat; 
 }
 
@@ -1349,7 +1376,7 @@ label .edit {
 }
 
 .anchor-style li.active span.people-person,
-.anchor-style li:hover span.people-person {
+.anchor-list li:hover span.people-person {
   background: url('../img/people-person-active.png') center center no-repeat; 
 }
 
@@ -1363,7 +1390,7 @@ label .edit {
 }
 
 .anchor-style li.active span.reader,
-.anchor-style li:hover span.reader {
+.anchor-list li:hover span.reader {
   background: url('../img/reader-active.png') center center no-repeat; 
 }
 
@@ -1377,7 +1404,7 @@ label .edit {
 }
 
 .anchor-style li.active span.speaker,
-.anchor-style li:hover span.speaker {
+.anchor-list li:hover span.speaker {
   background: url('../img/speaker-active.png') center center no-repeat; 
 }
 
@@ -1401,6 +1428,7 @@ label .edit {
 
 .anchor-slider .bx-wrapper {
   padding: 15px 70px;
+  max-width: 100% !important;
 }
 
 .anchor-slider .anchor-style {
@@ -1412,6 +1440,7 @@ label .edit {
   min-height: 140px;
   opacity: .5;
   position: relative;
+  list-style-type: none;
 }
 
 .anchor-slider .anchor-style li.active {
@@ -1419,17 +1448,17 @@ label .edit {
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.28);
 }
 
-.anchor-slider:before {
-  content: '';
+#anchorSlider .anchor-arrow {
   width: 0;
   height: 0;
   position: absolute;
   bottom: -27px;
-  left: 50%;
+  left: 140px;
   border-left: 27px solid transparent;
   border-right: 27px solid transparent;
   border-top: 27px solid #eef2f6;
-  transform: all .5s;
+  transition: all .5s;
+  -webkit-transition: all .5s;
 }
 
 .bx-wrapper .anchor-style li.done {
@@ -1444,23 +1473,23 @@ label .edit {
   opacity: 1;
 }
 
-.anchor-slider .anchor-style li.active.checked {
+.anchor-slider .anchor-style li.active {
   border: 1px solid rgb(195, 206, 218);
   box-shadow: none;
 }
 
-.anchor-slider .anchor-style li .yes{
+.anchor-slider .anchor-style li .status-icon {
   display: none;
 }
 
-.anchor-slider .anchor-style li .ignore {
+.anchor-slider .anchor-style li.ignore .status-icon {
   width: 20px;
   height: 20px;
   display: inline-block;
   background: url('../img/ignore.png') center center no-repeat;
 }
 
-.anchor-slider .anchor-style li.done .yes {
+.anchor-slider .anchor-style li.done .status-icon {
   width: 20px;
   height: 20px;
   display: inline-block;
@@ -1469,10 +1498,6 @@ label .edit {
 
 .anchor-slider .anchor-style li.active {
   opacity: 1;
-}
-
-.anchor-slider .anchor-style li.active.checked {
-  opacity: .5;
 }
 
 .anchor-slider .bx-viewport {
@@ -1484,7 +1509,7 @@ label .edit {
 
 .bx-wrapper .bx-controls-direction a {
   width: 70px;
-  display: inline-block;
+  display: inline-block !important;
   top: 0;
   height: 100%;
   margin-top: 0;
@@ -1584,10 +1609,6 @@ label .edit {
   color: #434e5b;
 } 
 
-.anchor-detail-section .anchor-details li label  {
-  display: block;
-}
-
 .anchor-detail-section .anchor-details li label .icon,
 .anchor-detail-section .anchor-details li .count { 
   margin-right: 30px;
@@ -1596,6 +1617,18 @@ label .edit {
 .anchor-detail-section .anchor-details li .count {
   width: 16px;
   display: inline-block;
+}
+
+.anchor-detail-section .anchor-details li.moveable-item {
+  cursor: move;
+}
+
+.anchor-detail-section .anchor-details li .move-icon {
+  width: 18px;
+  height: 40px;
+  background: url('../img/move-icon.png') center center no-repeat;
+  display: inline-block;
+  float: right;
 }
 
 .anchor-wrap-content .action .btn-back {
@@ -1675,3 +1708,6 @@ label .edit {
   margin-top: 20px;
 }
 
+#thirdStepCompassContinueBtn {
+  display: none;
+}

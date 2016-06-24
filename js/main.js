@@ -679,7 +679,6 @@ $('#momCareerGuideCheckbox').change(function(){
 		}
 	});
 
-
 });
 
 
