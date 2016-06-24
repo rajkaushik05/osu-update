@@ -92,6 +92,7 @@
    		$('#nextAnchorText').text(anchorText);
    		$('#thirdStepCompassBtn').show();
    		$('#thirdStepCompassContinueBtn').hide();
+   		$('#anchorSlider .anchor-arrow').show();
     });
 
     $('#anchorDetails').on("change", "input[type='checkbox']",  function(){
@@ -112,6 +113,8 @@
 	
 	
 $(document).ready(function(){
+
+	/* Add PERSONALITY block compass-1.html page*/
 	
 	/* code for compass page */
 
@@ -183,5 +186,9 @@ $(document).ready(function(){
 	var sortable = Sortable.create(moveAbleItem);
 
 	/* End final selected Anchor Evidence list and Drag and Drop functionality*/
+
+
+
+
 
 })
