@@ -1,5 +1,7 @@
 	/* Anchor collecions */
 
+	
+
 	var anchorCollection = [
 		{
 			"name":"activeAnchor", 
@@ -78,18 +80,33 @@
 
     $('#anchorSlider li').click(function(){ 
    		showBehaviorInBlock(anchorCollection[$(this).index()], $(this).index());
+
    		var index = ($(this).index());
    		var prev = Store[index] || [];
+   		var noSelected = [];
+		for(el in Store){
+		  for(var i=0; i<el; i++){
+		    if(i !== el){
+		      noSelected.push(i);
+		    }
+		  }
+		}
+
+		for(el in noSelected){
+			$('#anchorSlider li').eq(el).removeClass().addClass('ignore');
+		}
+
    		for(el in Store){
    			$('#anchorSlider li').eq(el).removeClass().addClass('done');
    		}
    		if (prev.length > 0){
    			$(this).removeClass().addClass('done');
-   		} else {
-   			$(this).addClass('active');
-   		}
+   		} 
+
    		var anchorText = $(this).next().find('.name').text();
    		$('#nextAnchorText').text(anchorText);
+   		$('#anchorSlider li').removeClass('active');
+   		$(this).removeClass().addClass('active');
    		$('#thirdStepCompassBtn').show();
    		$('#thirdStepCompassContinueBtn').hide();
    		$('#anchorSlider .anchor-arrow').show();
@@ -121,7 +138,7 @@ $(document).ready(function(){
 	$('.anchor-list li').click(function(){
 		var elId = $(this).attr('id');
 		//var temp = 'compass-3.html#' + elId;
-		window.location.href = 'compass-3.html#' + elId;
+		window.location.href = 'compass-3.html?=' + elId;
 	});
 
 	/*Active slider item arrow position get*/
@@ -144,7 +161,7 @@ $(document).ready(function(){
 		var size  = Object.keys(Store).length;
         var prev = [];
         var elementsList = [];
-		for(var i=0; i<size; i++){
+		for(var i=0; i<=size; i++){
 		  var tempArray = Store[i];
 		  for(prop in tempArray){
 		    prev.push(tempArray[prop]);
@@ -154,8 +171,7 @@ $(document).ready(function(){
         for(var i=0; i<anchorCollection.length; i++){
 	        for(item in anchorCollection[i].evidence){
 				var elId = anchorCollection[i].name + item;
-				if(prev.indexOf(elId) !== -1){
-					//var els = '<li><label> '+ anchorCollection[i].evidence[item] +' </label></li>';               					
+				if(prev.indexOf(elId) !== -1){              					
 					var els = '<li class="active '+anchorCollection[i].name+'"><input  checked="checked" type="checkbox" id="'+elId+'" disabled="disabled"><label for="'+elId+'"><span class="icon"></span><span class="count">'+count+'</span>'+ anchorCollection[i].evidence[item] +'</label><span class="move-icon"></span></li>'; 
 					elementsList.push(els);
 					count++;
@@ -169,6 +185,9 @@ $(document).ready(function(){
         }
         $(this).hide();
         $('#thirdStepCompassContinueBtn').show();
+        $('#anchorSlider .anchor-arrow').hide();
+
+        
 		return false
 	});
 
@@ -186,9 +205,25 @@ $(document).ready(function(){
 	var sortable = Sortable.create(moveAbleItem);
 
 	/* End final selected Anchor Evidence list and Drag and Drop functionality*/
+	
+	function getUrlVars() {
+	    var vars;
+	    var vars = window.location.href.slice(window.location.href.indexOf('?') + 1).split('=');
+	    
+	    return vars[1];
+	}
+	var getUrlString = getUrlVars();
 
-
-
+	$('#anchorSlider li').each(function(i, el){
+		if($(this).attr('id') == getUrlString){
+			$(this).addClass('active');
+			showBehaviorInBlock(anchorCollection[$(this).index()], $(this).index());
+	   		$('#anchorSlider .anchor-arrow').show();
+	   		var x = $(this).position().left;
+			x += 100;
+			$('#anchorSlider .anchor-arrow').css('left', x + 'px');
+		}
+	});
 
 
 })
