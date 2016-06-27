@@ -222,6 +222,8 @@ $(document).ready(function(){
 	   		var x = $(this).position().left;
 			x += 100;
 			$('#anchorSlider .anchor-arrow').css('left', x + 'px');
+			var anchorText = $(this).next().find('.name').text();
+   			$('#nextAnchorText').text(anchorText);
 		}
 	});
 
