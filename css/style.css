@@ -1192,7 +1192,7 @@ label .edit {
 .add-personality ul:before {
   content: '';
   width: 2px;
-  height: 89%;
+  height: 100%;
   background-color: #01a4e7;
   display: inline-block;
   position: absolute;
