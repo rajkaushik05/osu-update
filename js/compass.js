@@ -43,7 +43,172 @@
 			'Online Reading', 'Crosswords', 'Classics', 'Personal Development', 'Encyclopedia', 
 			'Autobiographics', 'Science Fiction', 'Thesaurus', 'Popular Science', 'Poetry', 'Editorials'],
 			"des":"Love Crosswords or a Keats's Poem? Do you like reading books?"
+		},
+		{
+			"name":"activeAnchorDuplicat1", 
+			"icon":"active", 
+			"status":"", 
+			"text":"Active", 
+			"evidence":['Athletics', 'Badminton', 'Basketball', 'Boxing', 'Cricket', 'Cycling', 'Exercise', 
+			'Football', 'Golf', 'Gymnastics', 'Horseriding'],
+			"des":"Do you like Football, Athletics or Wrestling?"
+		},
+
+		{
+			"name":"visualizerAnchorDuplicat1", 
+			"icon":"visualizer", 
+			"status":"", 
+			"text":"Visualizer", 
+			"evidence":['Animator', 'Caricatures', 'Decoration', 'Doodle', 
+			'Event Management', 'Fashion', 'Graffitti', 'Illustrator', 'Movie/Play Director'],
+			"des":"Do you like Animation, Grafitti or even Doodling?"
+		},
+
+		{
+			"name":"peoplePersonAnchorDuplicat1", 
+			"icon":"people-person", 
+			"status":"", 
+			"text":"People Person", 
+			"evidence":['Advice', 'Elected Representative', 'Good Humour', 'Mediator', 
+			'Organiser', 'Teaching', 'Social Work', 'Team Player', 'Volunteer', 'Good Listener', 
+			'Extrovert', 'Connecting with people', 'Social', 'Psychology of people', 'Adaptable'],
+			"des":"Are you interested in teaching, social work or connecting with people?"
+		},
+
+		{
+			"name":"readerAnchorDuplicat1", 
+			"icon":"reader", 
+			"status":"", 
+			"text":"Reader", 
+			"evidence":['Fiction', 'Reasearch', 'Non-fiction', 'Magazines', 
+			'Online Reading', 'Crosswords', 'Classics', 'Personal Development', 'Encyclopedia', 
+			'Autobiographics', 'Science Fiction', 'Thesaurus', 'Popular Science', 'Poetry', 'Editorials'],
+			"des":"Love Crosswords or a Keats's Poem? Do you like reading books?"
+		},
+		{
+			"name":"activeAnchorDuplicat2", 
+			"icon":"active", 
+			"status":"", 
+			"text":"Active", 
+			"evidence":['Athletics', 'Badminton', 'Basketball', 'Boxing', 'Cricket', 'Cycling', 'Exercise', 
+			'Football', 'Golf', 'Gymnastics', 'Horseriding'],
+			"des":"Do you like Football, Athletics or Wrestling?"
+		},
+
+		{
+			"name":"visualizerAnchorDuplicat2", 
+			"icon":"visualizer", 
+			"status":"", 
+			"text":"Visualizer", 
+			"evidence":['Animator', 'Caricatures', 'Decoration', 'Doodle', 
+			'Event Management', 'Fashion', 'Graffitti', 'Illustrator', 'Movie/Play Director'],
+			"des":"Do you like Animation, Grafitti or even Doodling?"
+		},
+
+		{
+			"name":"peoplePersonAnchorDuplicat2", 
+			"icon":"people-person", 
+			"status":"", 
+			"text":"People Person", 
+			"evidence":['Advice', 'Elected Representative', 'Good Humour', 'Mediator', 
+			'Organiser', 'Teaching', 'Social Work', 'Team Player', 'Volunteer', 'Good Listener', 
+			'Extrovert', 'Connecting with people', 'Social', 'Psychology of people', 'Adaptable'],
+			"des":"Are you interested in teaching, social work or connecting with people?"
+		},
+
+		{
+			"name":"readerAnchorDuplicat2", 
+			"icon":"reader", 
+			"status":"", 
+			"text":"Reader", 
+			"evidence":['Fiction', 'Reasearch', 'Non-fiction', 'Magazines', 
+			'Online Reading', 'Crosswords', 'Classics', 'Personal Development', 'Encyclopedia', 
+			'Autobiographics', 'Science Fiction', 'Thesaurus', 'Popular Science', 'Poetry', 'Editorials'],
+			"des":"Love Crosswords or a Keats's Poem? Do you like reading books?"
+		},
+		{
+			"name":"activeAnchorDuplicat3", 
+			"icon":"active", 
+			"status":"", 
+			"text":"Active", 
+			"evidence":['Athletics', 'Badminton', 'Basketball', 'Boxing', 'Cricket', 'Cycling', 'Exercise', 
+			'Football', 'Golf', 'Gymnastics', 'Horseriding'],
+			"des":"Do you like Football, Athletics or Wrestling?"
+		},
+
+		{
+			"name":"visualizerAnchorDuplicat3", 
+			"icon":"visualizer", 
+			"status":"", 
+			"text":"Visualizer", 
+			"evidence":['Animator', 'Caricatures', 'Decoration', 'Doodle', 
+			'Event Management', 'Fashion', 'Graffitti', 'Illustrator', 'Movie/Play Director'],
+			"des":"Do you like Animation, Grafitti or even Doodling?"
+		},
+
+		{
+			"name":"peoplePersonAnchorDuplicat3", 
+			"icon":"people-person", 
+			"status":"", 
+			"text":"People Person", 
+			"evidence":['Advice', 'Elected Representative', 'Good Humour', 'Mediator', 
+			'Organiser', 'Teaching', 'Social Work', 'Team Player', 'Volunteer', 'Good Listener', 
+			'Extrovert', 'Connecting with people', 'Social', 'Psychology of people', 'Adaptable'],
+			"des":"Are you interested in teaching, social work or connecting with people?"
+		},
+
+		{
+			"name":"readerAnchorDuplicat3", 
+			"icon":"reader", 
+			"status":"", 
+			"text":"Reader", 
+			"evidence":['Fiction', 'Reasearch', 'Non-fiction', 'Magazines', 
+			'Online Reading', 'Crosswords', 'Classics', 'Personal Development', 'Encyclopedia', 
+			'Autobiographics', 'Science Fiction', 'Thesaurus', 'Popular Science', 'Poetry', 'Editorials'],
+			"des":"Love Crosswords or a Keats's Poem? Do you like reading books?"
+		},
+		{
+			"name":"activeAnchorDuplicat4", 
+			"icon":"active", 
+			"status":"", 
+			"text":"Active", 
+			"evidence":['Athletics', 'Badminton', 'Basketball', 'Boxing', 'Cricket', 'Cycling', 'Exercise', 
+			'Football', 'Golf', 'Gymnastics', 'Horseriding'],
+			"des":"Do you like Football, Athletics or Wrestling?"
+		},
+
+		{
+			"name":"visualizerAnchorDuplicat4", 
+			"icon":"visualizer", 
+			"status":"", 
+			"text":"Visualizer", 
+			"evidence":['Animator', 'Caricatures', 'Decoration', 'Doodle', 
+			'Event Management', 'Fashion', 'Graffitti', 'Illustrator', 'Movie/Play Director'],
+			"des":"Do you like Animation, Grafitti or even Doodling?"
+		},
+
+		{
+			"name":"peoplePersonAnchorDuplicat4", 
+			"icon":"people-person", 
+			"status":"", 
+			"text":"People Person", 
+			"evidence":['Advice', 'Elected Representative', 'Good Humour', 'Mediator', 
+			'Organiser', 'Teaching', 'Social Work', 'Team Player', 'Volunteer', 'Good Listener', 
+			'Extrovert', 'Connecting with people', 'Social', 'Psychology of people', 'Adaptable'],
+			"des":"Are you interested in teaching, social work or connecting with people?"
+		},
+
+		{
+			"name":"readerAnchorDuplicat4", 
+			"icon":"reader", 
+			"status":"", 
+			"text":"Reader", 
+			"evidence":['Fiction', 'Reasearch', 'Non-fiction', 'Magazines', 
+			'Online Reading', 'Crosswords', 'Classics', 'Personal Development', 'Encyclopedia', 
+			'Autobiographics', 'Science Fiction', 'Thesaurus', 'Popular Science', 'Poetry', 'Editorials'],
+			"des":"Love Crosswords or a Keats's Poem? Do you like reading books?"
 		}
+
 	];
 
 	var Store = {
@@ -102,8 +267,15 @@
    		if (prev.length > 0){
    			$(this).removeClass().addClass('done');
    		} 
-
+   		var lastIndex = index+1;
+   		if(lastIndex == anchorCollection.length) {
+   			$('.action p').hide();
+   		} else {
+   			$('.action p').show();
+   		}
    		var anchorText = $(this).next().find('.name').text();
+   		var currentAnchorText = $(this).find('.name').text();
+   		$('#currentAnchorText').text(currentAnchorText);
    		$('#nextAnchorText').text(anchorText);
    		$('#nextAnchorText').show();
    		$('#anchorSlider li').removeClass('active');
@@ -111,7 +283,7 @@
    		$('#thirdStepCompassBtn').show();
    		$('#thirdStepCompassContinueBtn').hide();
    		$('#anchorSlider .anchor-arrow').show();
-   		$('.action .btn-back, .action p').show();
+   		$('.action .btn-back').show();
     });
 
     $('#anchorDetails').on("change", "input[type='checkbox']",  function(){
@@ -146,8 +318,8 @@ $(document).ready(function(){
 	/*Active slider item arrow position get*/
 
 	$('.bxslider li').click(function(){
-		var x = $(this).position().left;
-		x += 100;
+		var x = $(this).offset().left;
+		x += 57;
 		$('#anchorSlider .anchor-arrow').css('left', x + 'px');
 	});
 
@@ -160,10 +332,10 @@ $(document).ready(function(){
 	/* Start final selected Anchor Evidence list and Drag and Drop functionality*/
 	$('#thirdStepCompassBtn').click(function(){
 		$('#anchorDetails').empty();
-		var size  = Object.keys(Store).length;
+		//var size  = Object.keys(Store).length;
         var prev = [];
         var elementsList = [];
-		for(var i=0; i<=size; i++){
+		for(var i=0; i<=anchorCollection.length; i++){
 		  var tempArray = Store[i];
 		  for(prop in tempArray){
 		    prev.push(tempArray[prop]);
@@ -192,9 +364,11 @@ $(document).ready(function(){
         		var selectedItem = Store[selectedIndex];
         		if(selectedItem.length > 0){
         			$(this).removeClass().addClass('done');	
-        		}
+        		} 
+        		return false
         	} 
         });
+
         $(this).hide();
         $('#thirdStepCompassContinueBtn').show();
         $('#anchorSlider .anchor-arrow').hide();
@@ -231,11 +405,13 @@ $(document).ready(function(){
 			$(this).addClass('active');
 			showBehaviorInBlock(anchorCollection[$(this).index()], $(this).index());
 	   		$('#anchorSlider .anchor-arrow').show();
-	   		var x = $(this).position().left;
-			x += 100;
+	   		var x = $(this).offset().left;
+			x += 57;
 			$('#anchorSlider .anchor-arrow').css('left', x + 'px');
 			var anchorText = $(this).next().find('.name').text();
    			$('#nextAnchorText').text(anchorText);
+   			var currentAnchorText = $(this).find('.name').text();
+   			$('#currentAnchorText').text(currentAnchorText);
 		}
 	});
 
