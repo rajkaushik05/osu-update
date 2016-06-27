@@ -105,11 +105,13 @@
 
    		var anchorText = $(this).next().find('.name').text();
    		$('#nextAnchorText').text(anchorText);
+   		$('#nextAnchorText').show();
    		$('#anchorSlider li').removeClass('active');
    		$(this).removeClass().addClass('active');
    		$('#thirdStepCompassBtn').show();
    		$('#thirdStepCompassContinueBtn').hide();
    		$('#anchorSlider .anchor-arrow').show();
+   		$('.action .btn-back, .action p').show();
     });
 
     $('#anchorDetails').on("change", "input[type='checkbox']",  function(){
@@ -186,7 +188,7 @@ $(document).ready(function(){
         $(this).hide();
         $('#thirdStepCompassContinueBtn').show();
         $('#anchorSlider .anchor-arrow').hide();
-
+        $('.action .btn-back, .action p').hide();
         
 		return false
 	});
