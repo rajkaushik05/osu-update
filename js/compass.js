@@ -185,6 +185,16 @@ $(document).ready(function(){
         	var ele = elementsList[el];
         	$('#anchorDetails').append(ele);
         }
+
+        $('#anchorSlider li').each(function(i, el){
+        	if($(this).hasClass('active')){
+        		var selectedIndex = $(this).index();
+        		var selectedItem = Store[selectedIndex];
+        		if(selectedItem.length > 0){
+        			$(this).removeClass().addClass('done');	
+        		}
+        	} 
+        });
         $(this).hide();
         $('#thirdStepCompassContinueBtn').show();
         $('#anchorSlider .anchor-arrow').hide();
