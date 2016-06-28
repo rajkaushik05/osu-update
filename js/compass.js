@@ -359,14 +359,15 @@ $(document).ready(function(){
         }
 
         $('#anchorSlider li').each(function(i, el){
-        	if($(this).hasClass('active')){
-        		var selectedIndex = $(this).index();
-        		var selectedItem = Store[selectedIndex];
+        	var selectedIndex = $(this).index();
+        	var selectedItem = Store[selectedIndex];
+        	if($(this).hasClass('active') && selectedItem !== undefined){
         		if(selectedItem.length > 0){
         			$(this).removeClass().addClass('done');	
         		} 
-        		return false
-        	} 
+        	} else if(selectedItem === undefined) {
+    			$(this).removeClass().addClass('ignore');
+    		}
         });
 
         $(this).hide();

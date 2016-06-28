@@ -1288,12 +1288,14 @@ label .edit {
   border: 1px solid rgb(195, 206, 218);
   border-radius: 15px 0 15px 0;
   background-color: rgb(240, 245, 249);
-  padding: 15px 10px;
+  padding: 15px 0px;
   text-align: center;
   box-sizing: border-box;
   margin-left: 10px;
   margin-bottom: 15px;
   cursor: pointer;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 .anchor-style li.active,
