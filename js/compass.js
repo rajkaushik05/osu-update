@@ -362,13 +362,14 @@ $(document).ready(function(){
         	$('#anchorDetails').append(ele);
         }
 
-        $('#anchorSlider li').each(function(i, el){
-        	var selectedIndex = $(this).index();
-        	var selectedItem = Store[selectedIndex];
-        	if($(this).hasClass('active') && selectedItem == undefined){
-        		$(this).removeClass().addClass('ignore');
-        	} 
-        });
+        for(el in clickedItem){
+   			var indexValue = clickedItem[el];
+   			if(Store[indexValue] == undefined){
+   				$('#anchorSlider li').eq(indexValue).removeClass().addClass('ignore');	
+   			} else if(Store[indexValue] !== undefined){
+   				$('#anchorSlider li').eq(indexValue).removeClass().addClass('done');
+   			}
+   		}
 
         $(this).hide();
         $('.anchor-detail-section .ranking-block-text').show();
