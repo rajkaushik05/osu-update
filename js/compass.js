@@ -265,7 +265,7 @@
    				$('#anchorSlider li').eq(indexValue).removeClass().addClass('done');
    			}
    		}
-   		
+
    		var lastIndex = index+1;
    		if(lastIndex == anchorCollection.length) {
    			$('.action p').hide();
@@ -320,8 +320,11 @@ $(document).ready(function(){
 
 	$('.bxslider li').click(function(){
 		var x = $(this).offset().left;
-		x += 57;
-		$('#anchorSlider .anchor-arrow').css('left', x + 'px');
+		x += 28;
+		newPos = new Object();
+        newPos.left = x;
+        newPos.top = "160px";
+        $('.anchor-arrow').offset(newPos);
 	});
 
 	/* Compass third step continue button */
@@ -406,8 +409,11 @@ $(document).ready(function(){
 			showBehaviorInBlock(anchorCollection[$(this).index()], $(this).index());
 	   		$('#anchorSlider .anchor-arrow').show();
 	   		var x = $(this).offset().left;
-			x += 57;
-			$('#anchorSlider .anchor-arrow').css('left', x + 'px');
+			x += 28;
+			newPos = new Object();
+	        newPos.left = x;
+	        newPos.top = "160px";
+	        $('.anchor-arrow').offset(newPos);
 			var anchorText = $(this).next().find('.name').text();
    			$('#nextAnchorText').text(anchorText);
    			var currentAnchorText = $(this).find('.name').text();

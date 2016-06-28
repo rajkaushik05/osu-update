@@ -1456,7 +1456,7 @@ label .edit {
   height: 0;
   position: absolute;
   bottom: -27px;
-  left: 140px;
+  left: 0px;
   border-left: 27px solid transparent;
   border-right: 27px solid transparent;
   border-top: 27px solid #eef2f6;
