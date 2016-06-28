@@ -243,30 +243,29 @@
 		}
     }
 
+    var clickedItem = [];
     $('#anchorSlider li').click(function(){ 
    		showBehaviorInBlock(anchorCollection[$(this).index()], $(this).index());
 
    		var index = ($(this).index());
    		var prev = Store[index] || [];
-   		var noSelected = [];
-		for(el in Store){
-		  for(var i=0; i<el; i++){
-		    if(i !== el){
-		      noSelected.push(i);
-		    }
-		  }
-		}
-
-		for(el in noSelected){
-			$('#anchorSlider li').eq(el).removeClass().addClass('ignore');
-		}
-
+   		clickedItem.push(index);
+   		
+   		var selectedItemIndex = [];
    		for(el in Store){
-   			$('#anchorSlider li').eq(el).removeClass().addClass('done');
+   			selectedItemIndex.push(el);
    		}
-   		if (prev.length > 0){
-   			$(this).removeClass().addClass('done');
-   		} 
+
+
+   		for(el in clickedItem){
+   			var indexValue = clickedItem[el];
+   			if(Store[indexValue] == undefined){
+   				$('#anchorSlider li').eq(indexValue).removeClass().addClass('ignore');	
+   			} else if(Store[indexValue] !== undefined){
+   				$('#anchorSlider li').eq(indexValue).removeClass().addClass('done');
+   			}
+   		}
+   		
    		var lastIndex = index+1;
    		if(lastIndex == anchorCollection.length) {
    			$('.action p').hide();
@@ -283,7 +282,9 @@
    		$('#thirdStepCompassBtn').show();
    		$('#thirdStepCompassContinueBtn').hide();
    		$('#anchorSlider .anchor-arrow').show();
-   		$('.action .btn-back').show();
+   		$('.action .btn-back').show();   		
+   		$('.anchor-detail-section .anchor-des').show();
+   		$('.anchor-detail-section .ranking-block-text').hide();
     });
 
     $('#anchorDetails').on("change", "input[type='checkbox']",  function(){
@@ -361,16 +362,14 @@ $(document).ready(function(){
         $('#anchorSlider li').each(function(i, el){
         	var selectedIndex = $(this).index();
         	var selectedItem = Store[selectedIndex];
-        	if($(this).hasClass('active') && selectedItem !== undefined){
-        		if(selectedItem.length > 0){
-        			$(this).removeClass().addClass('done');	
-        		} 
-        	} else if(selectedItem === undefined) {
-    			$(this).removeClass().addClass('ignore');
-    		}
+        	if($(this).hasClass('active') && selectedItem == undefined){
+        		$(this).removeClass().addClass('ignore');
+        	} 
         });
 
         $(this).hide();
+        $('.anchor-detail-section .ranking-block-text').show();
+        $('.anchor-detail-section .anchor-des').hide();
         $('#thirdStepCompassContinueBtn').show();
         $('#anchorSlider .anchor-arrow').hide();
         $('.action .btn-back, .action p').hide();

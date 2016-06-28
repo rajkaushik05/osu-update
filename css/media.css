@@ -38,6 +38,10 @@
     width: 72%;
     word-break: break-all;
   }
+
+  .anchor-list {
+    width: calc(8.33333%*10);
+  }
 }
 
 

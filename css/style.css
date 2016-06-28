@@ -1288,7 +1288,7 @@ label .edit {
   border: 1px solid rgb(195, 206, 218);
   border-radius: 15px 0 15px 0;
   background-color: rgb(240, 245, 249);
-  padding: 15px 0px;
+  padding: 15px 10px;
   text-align: center;
   box-sizing: border-box;
   margin-left: 10px;
@@ -1440,6 +1440,7 @@ label .edit {
 .anchor-slider .anchor-style li {
   margin-left: 0;
   min-height: 140px;
+  padding: 15px 0;
   opacity: .5;
   position: relative;
   list-style-type: none;
@@ -1568,6 +1569,11 @@ label .edit {
   /* box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1); */
   background-color: rgb(215, 224, 233);
   margin-bottom: 40px;
+}
+
+
+.anchor-detail-section .ranking-block-text {
+  display: none;
 }
 
 .anchor-detail-section h2 {
