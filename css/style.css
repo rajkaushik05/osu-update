@@ -1652,6 +1652,11 @@ label .edit {
   font-size: 20px;
   color:  #9cadbf;
   font-weight: 700;
+  margin: 0;
+}
+
+.anchor-wrap-content .action .lets-ranking {
+  margin-top: 20px;
 }
 
 .anchor-wrap-content .action p .next {
@@ -1718,5 +1723,25 @@ label .edit {
 }
 
 #thirdStepCompassContinueBtn {
+  display: none;
+}
+
+#backToAnchor {
+  display: none;
+}
+
+.lets-ranking {
+  text-align: center;
+  display: none;
+  width: 100%;
+}
+
+.lets-ranking button {
+  color: #0094cb;
+  border: 0;
+  background-color: transparent;
+}
+
+#letsRankingBTN {
   display: none;
 }
