@@ -244,13 +244,17 @@ $(document).ready(function(){
 				$('#xiConsiderSubjectAdded').parents('.field').find('.thumb-up img').show();
 				$('#xiSubjectConsiderText').show();
 
-				$("#xiSubjectConsiderSelect").val('');
+				//$("#xiSubjectConsiderSelect").val('');
 			},
 			match :  {
 				enabled: true
 			}
 		}
 	};
+
+	$("#xiSubjectConsiderSelect").focus(function(){
+		$(this).val('');
+	});
 
 	$("#xiSubjectConsiderSelect").easyAutocomplete(selectStreem);
 
@@ -287,6 +291,10 @@ $(document).ready(function(){
 				$('#careersInterestedInAdded').append('<li class="row"><span class="pull-first"></span><span class="pull-second"></span> <span class="count">' + count + '</span><span class="text">' + value + '</span><span class="close"></span></li>');
 				$('#careersInterestedInAdded').parents('.field').find('.thumb-up img').show();
 				$("#careersInterestedInText").val('');
+				if(count <= 3){
+					$('#careersInterestedInAddedTag').append('<li><span class="text">' +value+ '</span><span class="close">x</span></li>');	
+				}
+				
 			},
 			match :  {
 				enabled: true
@@ -294,6 +302,32 @@ $(document).ready(function(){
 		}
 	};
 	$("#careersInterestedInText").easyAutocomplete(careerConsider);
+
+	$('#careersInterestedInAddedTag').on('click', '.close', function(){
+		var findText = $(this).parents('li').find('.text').text();
+		
+		$('#careersInterestedInAdded > li').each(function(i, el){
+			var findAnotherText = $(el).find('.text').text();
+			if(findText === findAnotherText){
+				$(this).remove();
+			}
+		})
+		$(this).parents('li').remove();
+		updateCount();
+	});
+
+	$('#careersInterestedInAdded').on('click', '.close', function(){
+		var findText = $(this).parents('li').find('.text').text();
+		
+		$('#careersInterestedInAddedTag > li').each(function(i, el){
+			var findAnotherText = $(el).find('.text').text();
+			if(findText === findAnotherText){
+				$(this).remove();
+			}
+		})
+		$(this).parents('li').remove();
+		updateCount();
+	});
 
 	/*soring functionality for career selection listed items*/
 
