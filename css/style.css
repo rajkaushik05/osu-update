@@ -528,6 +528,45 @@ select[disabled='disabled']{
     margin-top: 20px;
 }
 
+.career-interested  {
+  position: relative;
+}
+
+.interested-list-tag {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  position: absolute;
+  right: 20px;
+  top: 35px;
+}
+
+.interested-list-tag li{
+  font-size: 12px;
+  padding: 0 3px 0 5px;
+  line-height: 16px;
+  background-color: #ddd;
+  height: 18px;
+  border-radius: 9px;
+  -webkit-border-radius: 9px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.interested-list-tag li .close {
+  width: 14px;
+  height: 14px;
+  line-height: 12px;
+  text-align: center;
+  display: inline-block;
+  background-color: #fff;
+  vertical-align: middle;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
 .interested-List {
     margin: 0;
     list-style-type: none;
